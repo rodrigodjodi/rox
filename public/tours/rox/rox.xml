@@ -1,0 +1,46 @@
+﻿<krpano version="1.19" title="*TITULO*" idletime="0.5" debugmode="true">
+	<include url="skin/vtourskin.xml" />
+	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
+	<include url="skin/vtourskin_design_flat_light.xml" />
+	<skin_settings webvr_prev_next_hotspots="false"
+		tooltips_hotspots="true"
+		tooltips_mapspots="false"
+		loadingtext="carregando..."
+		deeplinking="false"
+		design_text_css="color:#FFFFFF;
+		font-family:Roboto;"
+		design_skin_images="PIPE-vtourskin_light.png" />
+	<include url="map/map.xml" />
+	<include url="data.xml" />
+	<!-- startup action - load the first scene -->
+	<action name="startup" autorun="onstart">
+		if(ambiente === null OR !scene[get(ambiente)], copy(ambiente,scene[0].name); );
+		loadscene(get(ambiente), null, MERGE);
+		if(startactions !== null, startactions() );
+		if(stagewidth GT 1200, sidebar_open());
+		webvr_hide_all_vr_only_hotspots();
+		txtadd(plugin[WebVR].onentervr, '; webvr_show_all_vr_only_hotspots();');
+		txtadd(plugin[WebVR].onexitvr, '; webvr_hide_all_vr_only_hotspots();');
+	</action>
+
+	
+	<scene name="Hall_R0-03_CoronaCamera001_Post" title="Hall_R0-03_CoronaCamera001_Post" onstart="on_scene_loaded();" havevrimage="true" thumburl="panos/Hall_R0-03_CoronaCamera001_Post.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Hall_R0-03_CoronaCamera001_Post.tiles/preview.jpg" />
+
+		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
+			<level tiledimagewidth="1024" tiledimageheight="1024">
+				<cube url="panos/Hall_R0-03_CoronaCamera001_Post.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+			</level>
+		</image>
+
+		<image if="webvr.isenabled">
+			<cube url="panos/Hall_R0-03_CoronaCamera001_Post.tiles/vr/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+
+</krpano>
