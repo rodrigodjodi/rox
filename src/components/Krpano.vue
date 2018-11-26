@@ -1,7 +1,5 @@
 <template>
-  <div class="krpano" id="viewer">
-
-  </div>
+  <div class="krpano" id="viewer"></div>
 </template>
 <script>
 import VueScript2 from "vue-script2";
@@ -15,7 +13,7 @@ export default {
   props: {
     xml: {
       type: String,
-      default: "panos/no-xml.xml"
+      default: null
     },
     scene: {
       type: String,

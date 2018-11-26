@@ -1,5 +1,5 @@
 <template>
-  <krpano />
+  <krpano xml="tours/rox/rox.xml"/>
 </template>
 
 <script>
