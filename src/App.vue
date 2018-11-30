@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-toolbar app>
-      <img src="rox-logo.png" alt="logo rox" id="roxlogo">
+      <img src="./assets/rox-logo.png" alt="logo rox" id="roxlogo">
       <v-toolbar-title class="headline text-uppercase">
         <span class="font-weight-light">{{title}}</span>
       </v-toolbar-title>
@@ -13,7 +13,7 @@
     </v-content>
 
     <v-bottom-nav :active.sync="bottomNav" :color="color" :value="true" app>
-      <v-btn dark v-for="(item, index) in navitems" :key="index">
+      <v-btn dark v-for="(item, index) in navitems" :key="index" :to="item.route">
         <span>{{item.texto}}</span>
         <v-icon>{{item.icone}}</v-icon>
       </v-btn>
@@ -28,14 +28,14 @@ export default {
   data() {
     return {
       navitems: [
-        { texto: "Maquete", icone: "360" },
-        { texto: "Tour", icone: "pin_drop" },
-        { texto: "Imagens", icone: "collections" }
+        { texto: "Projeto", icone: "360", route: "/" },
+        { texto: "Apartamentos", icone: "pin_drop", route: "/apartamentos" },
+        { texto: "Áreas comuns", icone: "collections", route: "/areascomuns" }
       ],
       bottomNav: 0,
       color: "#5e354c",
       showNav: true,
-      title: "MAquete Virtual"
+      title: "Maquete Virtual"
     };
   }
 };

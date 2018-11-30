@@ -4,6 +4,7 @@
 <script>
 import VueScript2 from "vue-script2";
 export default {
+  name: "Krpano",
   data() {
     return {
       flags: "MERGE",
@@ -23,6 +24,7 @@ export default {
   created() {},
   mounted() {
     VueScript2.load("tour.js").then(() => {
+      console.log("tour.js carregado?");
       //SE tudo deu certo tem que ter os objetos embedpano, removepano
       const { embedpano, removepano } = window;
       if (!(embedpano && removepano)) {
