@@ -20,7 +20,7 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "tour" */ "./views/ApartamentosView.vue")
+        import(/* webpackChunkName: "aps" */ "./views/ApartamentosView.vue")
     },
     {
       path: "/apartamentos/:ap",
@@ -28,8 +28,7 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "tour" */ "./views/ApView.vue")
+      component: () => import(/* webpackChunkName: "ap" */ "./views/ApView.vue")
     },
     {
       path: "/areascomuns",
@@ -38,7 +37,7 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "tour" */ "./views/AreasComunsView.vue")
+        import(/* webpackChunkName: "areascomuns" */ "./views/AreasComunsView.vue")
     }
   ]
 });

@@ -5,5 +5,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  created() {
+    this.$store.commit("SET_TITLE", "Maquete virtual");
+  }
+};
 </script>

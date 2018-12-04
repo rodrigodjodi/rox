@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <v-toolbar app>
-      <img src="./assets/rox-logo.png" alt="logo rox" id="roxlogo">
+      <router-link to="/">
+        <img src="./assets/rox-logo.png" alt="logo rox" id="roxlogo">
+      </router-link>
       <v-toolbar-title class="headline text-uppercase">
         <span class="font-weight-light">{{title}}</span>
       </v-toolbar-title>
@@ -22,6 +24,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "App",
   components: {},
@@ -34,9 +37,14 @@ export default {
       ],
       bottomNav: 0,
       color: "#5e354c",
-      showNav: true,
-      title: "Maquete Virtual"
+      showNav: true
     };
+  },
+  computed: {
+    ...mapState(["title"])
+  },
+  created() {
+    this.$store.commit("SET_TITLE", "maquete virtual");
   }
 };
 </script>

@@ -10,6 +10,7 @@
     ></div>
   </div>
 </template>
+
 <script>
 import VueGallery from "vue-gallery";
 export default {
@@ -26,6 +27,9 @@ export default {
       ],
       index: null
     };
+  },
+  created() {
+    this.$store.commit("SET_TITLE", "áreas comuns");
   }
 };
 </script>
