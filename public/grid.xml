@@ -1,0 +1,4 @@
+<krpano>
+	<!-- grid preview pano -->
+	<preview type="grid(cube,16,16,512,0xCCCCCC,0xFFFFFF,0x999999);" />
+</krpano>

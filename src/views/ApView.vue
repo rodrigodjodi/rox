@@ -1,20 +1,19 @@
 <template>
-  <div>
+  <div style="height:100%;">
     <v-tabs v-model="tab" color="cyan" grow :mandatory="true">
       <v-tabs-slider color="yellow"></v-tabs-slider>
-
       <v-tab v-for="ap in apartamentos" :key="ap.url" :to="`/apartamentos/${ap.url}`">{{ ap.aba }}</v-tab>
     </v-tabs>
-    <v-container fluid>
+    <v-container fluid fill-height>
       <v-layout row wrap>
+        <v-flex xs12 lg6>
+          <Krpano xml="../tours/grid/grid.xml" @error="krpanoerror"></Krpano>
+        </v-flex>
         <v-flex xs12 lg6>
           <h2>{{ap.txt}}</h2>
           <p>{{ap.tipologia}}</p>
           <p>{{ap.area}}</p>
           <p>{{ap.vagas}}</p>
-        </v-flex>
-        <v-flex xs12 lg6>
-          <!-- <img :src="require('../assets/galeria/plantas/rox_AP1_large.png')" alt> -->
         </v-flex>
       </v-layout>
     </v-container>
@@ -47,6 +46,9 @@ export default {
         }
       });
       this.ap = ap;
+    },
+    krpanoerror(err) {
+      console.error(err);
     }
   },
   created() {
@@ -56,6 +58,7 @@ export default {
     this.updatePage(to);
     next();
   },
+  mounted() {},
   destroyed() {
     console.log("destroyed");
   }

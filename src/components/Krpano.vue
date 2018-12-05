@@ -23,19 +23,23 @@ export default {
   },
   created() {},
   mounted() {
-    VueScript2.load("tour.js").then(() => {
-      console.log("tour.js carregado?");
-      //SE tudo deu certo tem que ter os objetos embedpano, removepano
-      const { embedpano, removepano } = window;
-      if (!(embedpano && removepano)) {
-        this.$emit(
-          "error",
-          "Não foi possível carregar uma extensão requerida."
-        );
-        return;
-      }
-      this.createPano();
-    });
+    VueScript2.load("../krpano.js")
+      .then(() => {
+        console.log("krpano carregado");
+        //SE tudo deu certo tem que ter os objetos embedpano, removepano
+        const { embedpano, removepano } = window;
+        if (!(embedpano && removepano)) {
+          this.$emit(
+            "error",
+            "Erro: A inicialização do krpano não foi bem sucedida."
+          );
+          return;
+        }
+        this.createPano();
+      })
+      .catch(err => {
+        console.error(err);
+      });
   },
   methods: {
     createPano() {
@@ -47,7 +51,6 @@ export default {
       });
     },
     krpanoReady(krpanoInstance) {
-      console.log("in ready mesmo com o erro");
       this.krpanoInstance = krpanoInstance;
       //this.loadScene();
     },
@@ -107,5 +110,6 @@ export default {
 <style>
 .krpano {
   height: 100%;
+  min-height: 320px;
 }
 </style>

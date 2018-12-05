@@ -42,9 +42,6 @@ export default {
   },
   computed: {
     ...mapState(["title"])
-  },
-  created() {
-    this.$store.commit("SET_TITLE", "maquete virtual");
   }
 };
 </script>
