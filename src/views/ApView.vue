@@ -7,7 +7,7 @@
     <v-container fluid fill-height>
       <v-layout row wrap>
         <v-flex xs12 lg6>
-          <Krpano xml="../tours/grid/grid.xml" @error="krpanoerror"></Krpano>
+          <Krpano xml="../tours/plantas/plantas.xml" @error="krpanoerror"></Krpano>
         </v-flex>
         <v-flex xs12 lg6>
           <h2>{{ap.txt}}</h2>

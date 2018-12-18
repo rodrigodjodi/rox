@@ -47,7 +47,9 @@ export default {
         xml: this.xml,
         target: "viewer",
         onready: this.krpanoReady,
-        onerror: this.krpanoError
+        onerror: this.krpanoError,
+        wmode: "transparent",
+        initvars: this.initvars
       });
     },
     krpanoReady(krpanoInstance) {
