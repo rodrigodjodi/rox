@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-toolbar app floating>
+    <v-toolbar app floating color="rgba(255, 255, 255, 0.5)">
       <router-link to="/">
         <img src="./assets/rox-logo.png" alt="logo rox" id="roxlogo">
       </router-link>
@@ -10,7 +10,7 @@
       <v-spacer></v-spacer>
     </v-toolbar>
 
-    <v-content class="overflow-hidden">
+    <v-content class="pt-0">
       <router-view></router-view>
     </v-content>
 

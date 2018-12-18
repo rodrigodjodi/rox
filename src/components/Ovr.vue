@@ -1,14 +1,17 @@
 <template>
-  <v-responsive :aspect-ratio="16/9" max-height="800">
+  <v-responsive :aspect-ratio="16/9" :max-height="innerHeight">
     <div id="container"></div>
   </v-responsive>
 </template>
 <script>
 import VueScript2 from "vue-script2";
+var obj;
 export default {
   name: "Ovr",
   data() {
-    return {};
+    return {
+      innerHeight: window.innerHeight
+    };
   },
   props: {
     xml: {
@@ -38,40 +41,27 @@ export default {
   },
   methods: {
     createOvr() {
-      var obj = new object2vrPlayer("container");
+      obj = new object2vrPlayer("container");
       obj.readConfigUrl(this.xml);
+      obj.setCenter(0.5, 1);
+      window.obj = obj;
       //this.enforceRatio();
     },
     enforceRatio() {
-      var a = document.getElementById("proportional");
-      if (window.innerHeight < a.clientHeight) {
-        a.style.width = window.innerHeight / 0.5630208333333333 + "px";
-      } else {
-        a.style.width = "100%";
-      }
+      this.innerHeight = window.innerHeight;
+      obj.setCenter(0.5, 1);
     }
   },
   watch: {},
   beforeDestroy: function() {
-    //window.removeEventListener("resize", this.enforceRatio);
+    window.removeEventListener("resize", this.enforceRatio);
   },
   mounted() {
-    //window.addEventListener("resize", this.enforceRatio);
+    window.addEventListener("resize", this.enforceRatio);
   }
 };
 </script>
 <style>
-#proportional {
-  display: block;
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
-  max-width: 1920px;
-}
-#dummy {
-  /* ratios is defined by height / width */
-  padding-top: 56.30208333333333%;
-}
 #container {
   position: absolute;
   top: 0;

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vrobject>
-  <input overlap="1" levelqueuebmp="5" preview="4" states="1" levelqueueraw="20" windowwidth="1920" width="3833" preload="1" rows="1" fileextension="jpg" windowheight="1081" levelmembmp="200" imagepath="images" levelmemraw="300" height="2159" columns="37" levelbias="0.400" leveltileurl="tiles/c%c_l%r_%y_%x.jpg" leveltilesize="512">
+  <input overlap="1" levelqueuebmp="5" preview="4" states="1" levelqueueraw="20" windowwidth="1920" width="3833" preload="1" rows="1" fileextension="jpg" windowheight="1081" levelmembmp="200" imagepath="images" levelmemraw="300" height="2159" columns="37" levelbias="0.400" leveltileurl="tiles/c%c_l%r_%y_%x.jpg" leveltilesize="1080">
     <level width="3833" embed="0" height="2159" preload="0" predecode="0"/>
     <level width="1916" embed="0" height="1079" preload="0" predecode="0"/>
-    <level width="958" embed="0" height="539" preload="0" predecode="0"/>
-    <level width="479" embed="0" height="269" preload="1" predecode="0"/>
+    <level width="958" embed="0" height="539" preload="1" predecode="0"/>
   </input>
-  <control simulatemass="1" lockedmouse="0" swapxy="0" lockedkeyboard="0" dblclickfullscreen="0" revx="0" invertwheel="1" revy="0" wrapx="1" wrapy="0" trapwheel="1" automovemode="0" lockedwheel="0" speedwheel="1.000" controller="1" sensitivity="10"/>
+  <control simulatemass="1" lockedmouse="0" swapxy="0" lockedkeyboard="0" dblclickfullscreen="0" revx="0" invertwheel="1" revy="0" wrapx="1" wrapy="0" trapwheel="1" 
+  automovemode="0" lockedwheel="0" speedwheel="1.000" controller="1" sensitivity="10"/>
   <view>
     <start row="0" column="22" state="0"/>
     <zoom default="1.000" centerx="0.00000" centery="0.00000" min="1" max="2.000"/>
-    <viewer imagescaling="1" backgroundcolor="0xffffff" background="1"/>
+    <viewer imagescaling="3" backgroundcolor="0xffffff" background="1"/>
   </view>
   <autorotate speed="1.000" delay="5.00" start="0"/>
   <userdata title="" datetime="" description="" copyright="" author="" source="" comment="" info=""/>

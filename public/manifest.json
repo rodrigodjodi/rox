@@ -50,7 +50,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "./index.html?utm_source=installedApp",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#fff",
   "theme_color": "#5e354c"
