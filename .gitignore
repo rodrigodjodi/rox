@@ -3,6 +3,7 @@ node_modules
 /dist
 panos
 *.tiles
+tiles
 # local env files
 .env.local
 .env.*.local

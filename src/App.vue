@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-toolbar app>
+    <v-toolbar app floating>
       <router-link to="/">
         <img src="./assets/rox-logo.png" alt="logo rox" id="roxlogo">
       </router-link>
@@ -10,11 +10,11 @@
       <v-spacer></v-spacer>
     </v-toolbar>
 
-    <v-content>
+    <v-content class="overflow-hidden">
       <router-view></router-view>
     </v-content>
 
-    <v-bottom-nav :active.sync="bottomNav" :color="color" :value="true" app>
+    <v-bottom-nav :active.sync="bottomNav" :color="color" :value="true" app v-if="false">
       <v-btn dark v-for="(item, index) in navitems" :key="index" :to="item.route">
         <span>{{item.texto}}</span>
         <v-icon>{{item.icone}}</v-icon>
