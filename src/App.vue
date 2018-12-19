@@ -14,7 +14,7 @@
       <router-view></router-view>
     </v-content>
 
-    <v-bottom-nav :active.sync="bottomNav" :color="color" :value="true" app v-if="false">
+    <v-bottom-nav :active.sync="bottomNav" :color="color" :value="true" app v-if="true">
       <v-btn dark v-for="(item, index) in navitems" :key="index" :to="item.route">
         <span>{{item.texto}}</span>
         <v-icon>{{item.icone}}</v-icon>
