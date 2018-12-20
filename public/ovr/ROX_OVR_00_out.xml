@@ -9,21 +9,21 @@
   <view>
     <start row="0" column="22" state="0"/>
     <zoom default="1.000" centerx="0.00000" centery="0.00000" min="1" max="2.000"/>
-    <viewer imagescaling="3" backgroundcolor="0xffffff" background="1"/>
+    <viewer imagescaling="2" backgroundcolor="0xffffff" background="1"/>
   </view>
   <autorotate speed="1.000" delay="5.00" start="0"/>
-  <userdata title="" datetime="" description="" copyright="" author="" source="" comment="" info=""/>
+  <userdata title="Rox" datetime="" description="" copyright="" author="" source="" comment="" info=""/>
   <qthotspots enabled="1" reuse="8">
     <label width="180" backgroundalpha="1" enabled="1" height="0" backgroundcolor="0xEE7501" bordercolor="0x000000" border="1" textcolor="0x000000" background="1" borderalpha="1.000" borderradius="1" wordwrap="1" textalpha="1.000"/>
-    <hotspot title="Final 1" target="" url="/ap/final1" id="159"/>
-    <hotspot title="Final 2" target="" url="" id="75"/>
-    <hotspot title="Final 3" target="" url="" id="223"/>
-    <hotspot title="Final 4" target="" url="" id="123"/>
-    <hotspot title="Final 5" target="" url="" id="129"/>
-    <hotspot title="Final 6" target="" url="" id="81"/>
-    <hotspot title="Cobertura 1" target="" url="" id="155"/>
-    <hotspot title="Cobertura 2" target="" url="" id="87"/>
-    <hotspot title="Áreas comuns" target="" url="" id="7"/>
+    <hotspot title="Final 1" target="_self" url="final1" id="159"/>
+    <hotspot title="Final 2" target="" url="final2" id="75"/>
+    <hotspot title="Final 3" target="" url="final3" id="223"/>
+    <hotspot title="Final 4" target="" url="final4" id="123"/>
+    <hotspot title="Final 5" target="" url="final5" id="129"/>
+    <hotspot title="Final 6" target="" url="final6" id="81"/>
+    <hotspot title="Cobertura 1" target="" url="coberturafinal1" id="155"/>
+    <hotspot title="Cobertura 2" target="" url="coberturafinal2" id="87"/>
+    <hotspot title="Áreas comuns" target="" url="areascomuns" id="7"/>
   </qthotspots>
   <hotspots>
     <label width="auto" backgroundalpha="1" enabled="1" height="0"

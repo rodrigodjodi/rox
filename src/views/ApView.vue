@@ -1,9 +1,5 @@
 <template>
   <div style="height:100%;">
-    <v-tabs v-model="tab" color="cyan" grow :mandatory="true">
-      <v-tabs-slider color="yellow"></v-tabs-slider>
-      <v-tab v-for="ap in apartamentos" :key="ap.url" :to="`/apartamentos/${ap.url}`">{{ ap.aba }}</v-tab>
-    </v-tabs>
     <v-container fluid fill-height>
       <v-layout row wrap>
         <v-flex xs12 lg6>
@@ -30,7 +26,6 @@ export default {
   },
   data() {
     return {
-      tab: null,
       ap: null
     };
   },

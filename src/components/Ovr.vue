@@ -1,5 +1,5 @@
 <template>
-  <v-responsive :aspect-ratio="16/9" :max-height="innerHeight">
+  <v-responsive :max-height="innerHeight" width="100%" height="100%">
     <div id="container"></div>
   </v-responsive>
 </template>
@@ -10,7 +10,8 @@ export default {
   name: "Ovr",
   data() {
     return {
-      innerHeight: window.innerHeight
+      innerHeight: window.innerHeight,
+      imagescale: 2
     };
   },
   props: {
@@ -19,9 +20,8 @@ export default {
       default: null
     }
   },
-  created() {},
   created() {
-    VueScript2.load("../object2vr_player.js")
+    VueScript2.load("../object2vr_player.1.js")
       .then(() => {
         console.log("object2VR carregado");
         //SE tudo deu certo tem que ter os objetos embedpano, removepano
@@ -40,11 +40,19 @@ export default {
       });
   },
   methods: {
+    changeratio() {
+      let is = this.imagescale === 2 ? 4 : 2;
+      obj.readConfigString(
+        `<vrobject><view><viewer imagescaling="${is}"/></view></vrobject>`
+      );
+      this.imagescale = is;
+    },
     createOvr() {
       obj = new object2vrPlayer("container");
       obj.readConfigUrl(this.xml);
-      obj.setCenter(0.5, 1);
+      obj.setCenter(0.46, 1);
       window.obj = obj;
+      window.vm = this;
       //this.enforceRatio();
     },
     enforceRatio() {

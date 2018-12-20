@@ -481,8 +481,8 @@ function object2vrPlayer(U) {
         : (a.preventDefault(), (ta = m), p()));
   }
   function Xb(a) {
-    oa || ((oa = new MSGesture()), (oa.target = c.control));
-    oa.addPointer(a.pointerId);
+    /* oa || ((oa = new MSGesture()), (oa.target = c.control));
+    oa.addPointer(a.pointerId); */
   }
   function vc(a) {
     K || (a.preventDefault(), (r = -1));
@@ -2342,7 +2342,7 @@ function object2vrPlayer(U) {
     c.preloadImages();
   };
   c.openUrl = function(a, c) {
-    0 < a.length && window.open(a, c);
+    0 < a.length && window.vm.$emit("hsClick", a);
   };
   c.detectBrowser();
   c.createLayers(U);

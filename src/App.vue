@@ -1,25 +1,52 @@
 <template>
   <v-app>
-    <v-toolbar app floating color="rgba(255, 255, 255, 0.5)">
-      <router-link to="/">
-        <img src="./assets/rox-logo.png" alt="logo rox" id="roxlogo">
-      </router-link>
-      <v-toolbar-title class="headline text-uppercase">
-        <span class="font-weight-light">{{title}}</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-    </v-toolbar>
+    <v-navigation-drawer
+      style="z-index:2000;"
+      class="mt-2 ml-2 elevation-12"
+      hide-overlay
+      fixed
+      :mini-variant="mini"
+      floating
+      stateless
+      value="true"
+      permanent
+      height="auto"
+      touchless
+      :mini-variant-width="60"
+    >
+      <v-list class="pa-0">
+        <v-list-tile avatar @click.stop="mini = !mini">
+          <v-list-tile-avatar tile>
+            <img src="./assets/rox-logo.png" alt="logo rox" id="roxlogo">
+          </v-list-tile-avatar>
 
-    <v-content class="pt-0">
+          <v-list-tile-content>
+            <v-list-tile-title>{{title}}</v-list-tile-title>
+          </v-list-tile-content>
+
+          <v-list-tile-action>
+            <v-btn icon @click.stop="mini = !mini">
+              <v-icon>chevron_left</v-icon>
+            </v-btn>
+          </v-list-tile-action>
+        </v-list-tile>
+      </v-list>
+
+      <v-list>
+        <v-list-tile v-for="item in navitems" :key="item.texto" :to="item.route">
+          <v-list-tile-action>
+            <v-icon>{{ item.icone }}</v-icon>
+          </v-list-tile-action>
+
+          <v-list-tile-content>
+            <v-list-tile-title>{{ item.texto }}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    <v-content>
       <router-view></router-view>
     </v-content>
-
-    <v-bottom-nav :active.sync="bottomNav" :color="color" :value="true" app v-if="true">
-      <v-btn dark v-for="(item, index) in navitems" :key="index" :to="item.route">
-        <span>{{item.texto}}</span>
-        <v-icon>{{item.icone}}</v-icon>
-      </v-btn>
-    </v-bottom-nav>
   </v-app>
 </template>
 
@@ -31,13 +58,11 @@ export default {
   data() {
     return {
       navitems: [
-        { texto: "Projeto", icone: "360", route: "/" },
+        { texto: "Localização", icone: "360", route: "/" },
         { texto: "Apartamentos", icone: "pin_drop", route: "/apartamentos" },
         { texto: "Áreas comuns", icone: "collections", route: "/areascomuns" }
       ],
-      bottomNav: 0,
-      color: "#5e354c",
-      showNav: true
+      mini: true
     };
   },
   computed: {
@@ -46,7 +71,7 @@ export default {
 };
 </script>
 <style>
-#roxlogo {
-  height: 48px;
+.v-list__tile {
+  padding: 0 6px;
 }
 </style>
