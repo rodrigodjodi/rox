@@ -1,19 +1,5 @@
 <template>
-  <div style="height:100%;">
-    <v-container fluid fill-height>
-      <v-layout row wrap>
-        <v-flex xs12 lg6>
-          <Krpano xml="../tours/plantas/plantas.xml" @error="krpanoerror"></Krpano>
-        </v-flex>
-        <v-flex xs12 lg6>
-          <h2>{{ap.txt}}</h2>
-          <p>{{ap.tipologia}}</p>
-          <p>{{ap.area}}</p>
-          <p>{{ap.vagas}}</p>
-        </v-flex>
-      </v-layout>
-    </v-container>
-  </div>
+  <Krpano xml="../tours/plantas/plantas.xml" @error="krpanoerror"></Krpano>
 </template>
 
 <script>
@@ -35,7 +21,7 @@ export default {
   methods: {
     updatePage(route) {
       let ap = this.apartamentos.find((el, index) => {
-        if (el.url === route.params.ap) {
+        if (el.id === route.params.ap) {
           this.$store.commit("SET_TITLE", this.apartamentos[index].txt);
           return el;
         }

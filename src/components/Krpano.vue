@@ -1,5 +1,7 @@
 <template>
-  <div class="krpano" id="viewer"></div>
+  <v-responsive :max-height="innerHeight" width="100%" height="100%">
+    <div class="krpano" id="viewer"></div>
+  </v-responsive>
 </template>
 <script>
 import VueScript2 from "vue-script2";
@@ -7,6 +9,7 @@ export default {
   name: "Krpano",
   data() {
     return {
+      innerHeight: window.innerHeight,
       flags: "MERGE",
       krpanoInstance: null
     };
@@ -20,26 +23,6 @@ export default {
       type: String,
       required: false
     }
-  },
-  created() {},
-  mounted() {
-    VueScript2.load("../krpano.js")
-      .then(() => {
-        console.log("krpano carregado");
-        //SE tudo deu certo tem que ter os objetos embedpano, removepano
-        const { embedpano, removepano } = window;
-        if (!(embedpano && removepano)) {
-          this.$emit(
-            "error",
-            "Erro: A inicialização do krpano não foi bem sucedida."
-          );
-          return;
-        }
-        this.createPano();
-      })
-      .catch(err => {
-        console.error(err);
-      });
   },
   methods: {
     createPano() {
@@ -83,6 +66,9 @@ export default {
           `loadscene(get(scene[0].name),null,${this.flags},BLEND(0.5))`
         );
       }
+    },
+    enforceRatio() {
+      this.innerHeight = window.innerHeight;
     }
   },
   watch: {
@@ -106,6 +92,31 @@ export default {
         this.$emit("xmlChanged", xml);
       }
     }
+  },
+  created() {
+    VueScript2.load("../krpano.js")
+      .then(() => {
+        console.log("krpano carregado");
+        //SE tudo deu certo tem que ter os objetos embedpano, removepano
+        const { embedpano, removepano } = window;
+        if (!(embedpano && removepano)) {
+          this.$emit(
+            "error",
+            "Erro: A inicialização do krpano não foi bem sucedida."
+          );
+          return;
+        }
+        this.createPano();
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  },
+  beforeDestroy: function() {
+    window.removeEventListener("resize", this.enforceRatio);
+  },
+  mounted() {
+    window.addEventListener("resize", this.enforceRatio);
   }
 };
 </script>

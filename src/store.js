@@ -8,7 +8,8 @@ export default new Vuex.Store({
     title: "",
     apartamentos: [
       {
-        url: "final1",
+        id: "final1",
+        route: "/apartamentos/final1",
         txt: "Apto. Final 1",
         aba: "Final 1",
         tipologia: "3 quartos (1 suíte)",
@@ -16,7 +17,8 @@ export default new Vuex.Store({
         vagas: "1 vaga dupla"
       },
       {
-        url: "final2",
+        id: "final2",
+        route: "/apartamentos/final2",
         txt: "Apto. Final 2",
         aba: "Final 2",
         tipologia: "3 quartos (1 suíte)",
@@ -24,7 +26,8 @@ export default new Vuex.Store({
         vagas: "1 vaga dupla"
       },
       {
-        url: "final3",
+        id: "final3",
+        route: "/apartamentos/final3",
         txt: "Apto. Final 3",
         aba: "Final 3",
         tipologia: "2 quartos (1 suíte)",
@@ -32,7 +35,8 @@ export default new Vuex.Store({
         vagas: "1 vaga simples ou 1 vaga dupla"
       },
       {
-        url: "final4",
+        id: "final4",
+        route: "/apartamentos/final4",
         txt: "Apto. Final 4",
         aba: "Final 4",
         tipologia: "3 quartos (1 suíte)",
@@ -40,7 +44,8 @@ export default new Vuex.Store({
         vagas: "1 vaga dupla"
       },
       {
-        url: "final5",
+        id: "final5",
+        route: "/apartamentos/final5",
         txt: "Apto. Final 5",
         aba: "Final 5",
         tipologia: "3 quartos (1 suíte)",
@@ -48,7 +53,8 @@ export default new Vuex.Store({
         vagas: "1 vaga dupla"
       },
       {
-        url: "final6",
+        id: "final6",
+        route: "/apartamentos/final6",
         txt: "Apto. Final 6",
         aba: "Final 6",
         tipologia: "2 quartos (1 suíte)",
@@ -56,7 +62,8 @@ export default new Vuex.Store({
         vagas: "1 vaga simples ou 1 vaga dupla"
       },
       {
-        url: "coberturafinal1",
+        id: "coberturafinal1",
+        route: "/apartamentos/coberturafinal1",
         txt: "Cobertura Final 1",
         aba: "Cob. Final 1",
         tipologia: "4 quartos (2 suítes)",
@@ -65,13 +72,20 @@ export default new Vuex.Store({
         vagas: "1 vaga dupla e 1 vaga simples"
       },
       {
-        url: "coberturafinal2",
+        id: "coberturafinal2",
+        route: "/apartamentos/coberturafinal2",
         txt: "Cobertura Final 2",
         aba: "Cob. Final 2",
         tipologia: "4 quartos (2 suítes)",
         area: "146,43 m²",
         areaterraco: "36,20 m²",
         vagas: "1 vaga dupla e 1 vaga simples"
+      },
+      {
+        id: "areascomuns",
+        route: "/areascomuns",
+        txt: "Áreas Comuns",
+        aba: "Áreas Comuns"
       }
     ]
   },

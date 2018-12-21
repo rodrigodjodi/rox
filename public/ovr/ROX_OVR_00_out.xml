@@ -9,7 +9,7 @@
   <view>
     <start row="0" column="22" state="0"/>
     <zoom default="1.000" centerx="0.00000" centery="0.00000" min="1" max="2.000"/>
-    <viewer imagescaling="2" backgroundcolor="0xffffff" background="1"/>
+    <viewer imagescaling="4" backgroundcolor="0xffffff" background="1"/>
   </view>
   <autorotate speed="1.000" delay="5.00" start="0"/>
   <userdata title="Rox" datetime="" description="" copyright="" author="" source="" comment="" info=""/>

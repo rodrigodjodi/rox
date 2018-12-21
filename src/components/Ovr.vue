@@ -57,7 +57,7 @@ export default {
     },
     enforceRatio() {
       this.innerHeight = window.innerHeight;
-      obj.setCenter(0.5, 1);
+      obj.setCenter(0.46, 1);
     }
   },
   watch: {},
