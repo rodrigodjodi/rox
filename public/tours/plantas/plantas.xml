@@ -4,19 +4,22 @@
 	<include url="../../skin/PIPE-flatpano_setup-pr16.xml" />
 	
 	<!-- preview pano image -->
-	<preview url="final1.tiles/preview.jpg" />
+	<preview url="ap1.tiles/preview.jpg" />
 
 
 	<!-- pano image -->
-	<image type="CYLINDER" hfov="1.00" vfov="0.794407" voffset="0.00" multires="true" tilesize="512">
-		<level tiledimagewidth="2624" tiledimageheight="2086">
-			<cylinder url="final1.tiles/l3/%v/l3_%v_%h.jpg" />
+	<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
+		<level tiledimagewidth="3584" tiledimageheight="2048">
+			<cylinder url="ap1.tiles/l4/%v/l4_%v_%h.jpg" />
 		</level>
-		<level tiledimagewidth="1280" tiledimageheight="1018">
-			<cylinder url="final1.tiles/l2/%v/l2_%v_%h.jpg" />
+		<level tiledimagewidth="1792" tiledimageheight="1024">
+			<cylinder url="ap1.tiles/l3/%v/l3_%v_%h.jpg" />
 		</level>
-		<level tiledimagewidth="640" tiledimageheight="510">
-			<cylinder url="final1.tiles/l1/%v/l1_%v_%h.jpg" />
+		<level tiledimagewidth="768" tiledimageheight="440">
+			<cylinder url="ap1.tiles/l2/%v/l2_%v_%h.jpg" />
+		</level>
+		<level tiledimagewidth="512" tiledimageheight="294">
+			<cylinder url="ap1.tiles/l1/%v/l1_%v_%h.jpg" />
 		</level>
 	</image>
 
