@@ -1,24 +1,24 @@
-﻿<krpano bgcolor="0xFFFFFF">
+﻿<krpano bgcolor="0xFFFFFF" basedir="%SWFPATH%">
+
 
 	<include url="../../skin/PIPE-flatpano_setup-pr16.xml" />
 	
 	<!-- preview pano image -->
-	<preview url="final1.tiles/preview.jpg" />
-
+	<preview url="dup2-sup.tiles/preview.jpg" />
 
 	<!-- pano image -->
 	<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
 		<level tiledimagewidth="3584" tiledimageheight="2048">
-			<cylinder url="final1.tiles/l4/%v/l4_%v_%h.jpg" />
+			<cylinder url="dup2-sup.tiles/l4/%v/l4_%v_%h.jpg" />
 		</level>
 		<level tiledimagewidth="1792" tiledimageheight="1024">
-			<cylinder url="final1.tiles/l3/%v/l3_%v_%h.jpg" />
+			<cylinder url="dup2-sup.tiles/l3/%v/l3_%v_%h.jpg" />
 		</level>
 		<level tiledimagewidth="768" tiledimageheight="440">
-			<cylinder url="final1.tiles/l2/%v/l2_%v_%h.jpg" />
+			<cylinder url="dup2-sup.tiles/l2/%v/l2_%v_%h.jpg" />
 		</level>
 		<level tiledimagewidth="512" tiledimageheight="294">
-			<cylinder url="final1.tiles/l1/%v/l1_%v_%h.jpg" />
+			<cylinder url="dup2-sup.tiles/l1/%v/l1_%v_%h.jpg" />
 		</level>
 	</image>
 

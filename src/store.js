@@ -10,7 +10,7 @@ export default new Vuex.Store({
       {
         id: "final1",
         route: "/apartamentos/final1",
-        txt: "Apto. Final 1",
+        text: "Apto. Final 1",
         aba: "Final 1",
         tipologia: "3 quartos (1 suíte)",
         area: "86,54 m²",
@@ -19,7 +19,7 @@ export default new Vuex.Store({
       {
         id: "final2",
         route: "/apartamentos/final2",
-        txt: "Apto. Final 2",
+        text: "Apto. Final 2",
         aba: "Final 2",
         tipologia: "3 quartos (1 suíte)",
         area: "85,19 m²",
@@ -28,7 +28,7 @@ export default new Vuex.Store({
       {
         id: "final3",
         route: "/apartamentos/final3",
-        txt: "Apto. Final 3",
+        text: "Apto. Final 3",
         aba: "Final 3",
         tipologia: "2 quartos (1 suíte)",
         area: "68,58 m²",
@@ -37,7 +37,7 @@ export default new Vuex.Store({
       {
         id: "final4",
         route: "/apartamentos/final4",
-        txt: "Apto. Final 4",
+        text: "Apto. Final 4",
         aba: "Final 4",
         tipologia: "3 quartos (1 suíte)",
         area: "85,19 m²",
@@ -46,7 +46,7 @@ export default new Vuex.Store({
       {
         id: "final5",
         route: "/apartamentos/final5",
-        txt: "Apto. Final 5",
+        text: "Apto. Final 5",
         aba: "Final 5",
         tipologia: "3 quartos (1 suíte)",
         area: "85,93 m²",
@@ -55,7 +55,7 @@ export default new Vuex.Store({
       {
         id: "final6",
         route: "/apartamentos/final6",
-        txt: "Apto. Final 6",
+        text: "Apto. Final 6",
         aba: "Final 6",
         tipologia: "2 quartos (1 suíte)",
         area: "69,86 m²",
@@ -64,7 +64,7 @@ export default new Vuex.Store({
       {
         id: "coberturafinal1",
         route: "/apartamentos/coberturafinal1",
-        txt: "Cobertura Final 1",
+        text: "Cobertura Final 1",
         aba: "Cob. Final 1",
         tipologia: "4 quartos (2 suítes)",
         area: "148,14 m²",
@@ -74,18 +74,12 @@ export default new Vuex.Store({
       {
         id: "coberturafinal2",
         route: "/apartamentos/coberturafinal2",
-        txt: "Cobertura Final 2",
+        text: "Cobertura Final 2",
         aba: "Cob. Final 2",
         tipologia: "4 quartos (2 suítes)",
         area: "146,43 m²",
         areaterraco: "36,20 m²",
         vagas: "1 vaga dupla e 1 vaga simples"
-      },
-      {
-        id: "areascomuns",
-        route: "/areascomuns",
-        txt: "Áreas Comuns",
-        aba: "Áreas Comuns"
       }
     ]
   },

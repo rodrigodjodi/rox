@@ -32,7 +32,7 @@ export default {
         return el.id === payload;
       });
       if (index < 0) return false;
-      this.text = this.apartamentos[index].txt;
+      this.text = this.apartamentos[index].text;
       this.route = this.apartamentos[index].route;
       this.snackbar = true;
     }

@@ -1,10 +1,10 @@
-﻿<krpano bgcolor="0xFFFFFF">
+﻿<krpano bgcolor="0xFFFFFF" basedir="%SWFPATH%">
+
 
 	<include url="../../skin/PIPE-flatpano_setup-pr16.xml" />
 	
 	<!-- preview pano image -->
 	<preview url="final1.tiles/preview.jpg" />
-
 
 	<!-- pano image -->
 	<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">

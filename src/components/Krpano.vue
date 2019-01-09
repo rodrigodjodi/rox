@@ -1,5 +1,5 @@
 <template>
-  <v-responsive :max-height="innerHeight" width="100%" height="100%">
+  <v-responsive :aspect-ratio="7/4" width="100%" :max-height="innerHeight">
     <div class="krpano" id="viewer"></div>
   </v-responsive>
 </template>
@@ -22,6 +22,20 @@ export default {
     scene: {
       type: String,
       required: false
+    },
+    initvars: {
+      type: Object,
+      default() {
+        return {};
+      }
+    },
+    vars: {
+      type: Object,
+      default() {
+        return {
+          path: "mypath"
+        };
+      }
     }
   },
   methods: {
@@ -32,6 +46,7 @@ export default {
         onready: this.krpanoReady,
         onerror: this.krpanoError,
         wmode: "transparent",
+        vars: this.vars,
         initvars: this.initvars
       });
     },
@@ -82,13 +97,10 @@ export default {
     },
     xml: function(xml) {
       if (this.krpanoInstance && xml) {
-        if (xml === "tour.xml") {
-          this.krpanoInstance.call(
-            `loadpanoscene(${xml},${this.scene},null,IGNOREKEEP)`
-          );
-        } else {
-          this.krpanoInstance.call(`loadpano(${xml},null,IGNOREKEEP)`);
-        }
+        console.log(xml);
+        this.krpanoInstance.call(
+          `loadpano(${xml},null,IGNOREKEEP, BLEND(0.5))`
+        );
         this.$emit("xmlChanged", xml);
       }
     }

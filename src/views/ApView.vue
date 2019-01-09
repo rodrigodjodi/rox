@@ -1,5 +1,27 @@
 <template>
-  <Krpano xml="../tours/plantas/plantas.xml" @error="krpanoerror"></Krpano>
+  <v-container fluid class="pa-0">
+    <v-layout row wrap>
+      <v-flex xs12 sm7 md9 lg10>
+        <Krpano :xml="xml" @error="krpanoerror"/>
+      </v-flex>
+      <v-flex xs12 sm5 md3 lg2>
+        <v-select
+          :items="apartamentos"
+          v-model="apRoute"
+          single-line
+          item-value="route"
+          @change="changeSelect"
+          prepend-icon="chevron_left"
+          append-outer-icon="chevron_right"
+          @click:prepend=" changeAp('prev')"
+          @click:append-outer=" changeAp('next')"
+        ></v-select>
+        <h2>{{ap.tipologia}}</h2>
+        <h2>{{ap.area}}</h2>
+        <h3>{{ap.vagas}}</h3>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
@@ -12,31 +34,52 @@ export default {
   },
   data() {
     return {
-      ap: null
+      ap: null,
+      apRoute: null
     };
   },
   computed: {
-    ...mapState(["apartamentos"])
+    ...mapState(["apartamentos"]),
+    xml() {
+      return `../tours/plantas/${this.ap.id}.xml`;
+    }
   },
   methods: {
-    updatePage(route) {
+    changeAp(direction) {
+      let currentIndex = this.apartamentos.indexOf(this.ap);
+      let newIndex = direction === "prev" ? currentIndex - 1 : currentIndex + 1;
+      let length = this.apartamentos.length;
+      if (newIndex === length) {
+        newIndex = 0;
+      } else if (newIndex < 0) {
+        newIndex = length - 1;
+      }
+      this.$router.push(this.apartamentos[newIndex].route);
+    },
+    changeSelect() {
+      this.$router.push(this.apRoute);
+    },
+    updatePage(id) {
       let ap = this.apartamentos.find((el, index) => {
-        if (el.id === route.params.ap) {
+        if (el.id === id) {
           this.$store.commit("SET_TITLE", this.apartamentos[index].txt);
           return el;
         }
       });
-      this.ap = ap;
+      if (ap) {
+        this.ap = ap;
+        this.apRoute = ap.route;
+      }
     },
     krpanoerror(err) {
       console.error(err);
     }
   },
   created() {
-    this.updatePage(this.$route);
+    this.updatePage(this.$route.params.ap);
   },
   beforeRouteUpdate(to, from, next) {
-    this.updatePage(to);
+    this.updatePage(to.params.ap);
     next();
   },
   mounted() {},
