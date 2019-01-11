@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     title: "",
+    innerHeight: 0,
     apartamentos: [
       {
         id: "final1",
@@ -86,6 +87,9 @@ export default new Vuex.Store({
   mutations: {
     SET_TITLE(state, title) {
       state.title = title;
+    },
+    ON_RESIZE(state, size) {
+      state.innerHeight = size;
     }
   },
   actions: {}

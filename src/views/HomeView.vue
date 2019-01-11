@@ -1,7 +1,7 @@
 <template>
   <div style="height: 100%;">
     <ovr xml="../ovr/ROX_OVR_00_out.xml" @hsClick="triggerNavOption"></ovr>
-    <v-snackbar v-model="snackbar" bottom :timeout="5000">
+    <v-snackbar v-model="snackbar" top :timeout="4000">
       {{ text }}
       <v-btn color="pink" flat @click="$router.push(route)">Ver</v-btn>
     </v-snackbar>
@@ -21,7 +21,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["apartamentos"])
+    ...mapState(["apartamentos", "innerHeight"])
   },
   created() {
     this.$store.commit("SET_TITLE", "Maquete virtual");

@@ -4,8 +4,10 @@
       <v-flex xs12 sm7 md9 lg10>
         <Krpano :xml="xml" @error="krpanoerror"/>
       </v-flex>
-      <v-flex xs12 sm5 md3 lg2>
+      <v-flex xs12 sm5 md3 lg2 class="apInfo pa-2">
         <v-select
+          dark
+          class="apSelect"
           :items="apartamentos"
           v-model="apRoute"
           single-line
@@ -16,9 +18,27 @@
           @click:prepend=" changeAp('prev')"
           @click:append-outer=" changeAp('next')"
         ></v-select>
-        <h2>{{ap.tipologia}}</h2>
-        <h2>{{ap.area}}</h2>
-        <h3>{{ap.vagas}}</h3>
+        <v-list style="background: #5e354c;">
+          <v-list-tile color="white">
+            <v-list-tile-action>
+              <v-icon color="white">hotel</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content color="white">{{ ap.tipologia }}</v-list-tile-content>
+          </v-list-tile>
+          <v-list-tile color="white">
+            <v-list-tile-action>
+              <v-icon color="white">straighten</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>{{ap.area }}</v-list-tile-content>
+          </v-list-tile>
+          <v-list-tile color="white">
+            <v-list-tile-action>
+              <v-icon color="white">directions_car</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content color="white">{{ ap.vagas }}</v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+        <v-img :aspect-ratio="16/9" :src="`../tours/plantas/chave-${ap.id}.png`"></v-img>
       </v-flex>
     </v-layout>
   </v-container>
@@ -56,8 +76,8 @@ export default {
       }
       this.$router.push(this.apartamentos[newIndex].route);
     },
-    changeSelect() {
-      this.$router.push(this.apRoute);
+    changeSelect(ev) {
+      this.$router.push(ev);
     },
     updatePage(id) {
       let ap = this.apartamentos.find((el, index) => {
@@ -90,5 +110,11 @@ export default {
 </script>
 
 <style>
+.apInfo {
+  background: #5e354c;
+  color: white;
+}
+.apSelect {
+}
 </style>
 

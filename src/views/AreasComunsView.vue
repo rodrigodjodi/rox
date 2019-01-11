@@ -1,22 +1,22 @@
 <template>
-  <div>
-    <gallery :images="plantas" :index="index" @close="index = null"></gallery>
-    <div
-      class="image"
-      v-for="(image, imageIndex) in plantas"
-      :key="imageIndex"
-      @click="index = imageIndex"
-      :style="{ backgroundImage: 'url(' + image + ')', width: '300px', height: '200px' }"
-    ></div>
-  </div>
+  <v-container fluid class="pa-0">
+    <v-layout row wrap>
+      <v-flex xs12>
+        <Krpano :xml="xml" @error="krpanoerror" :fillheight="true"/>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
+import { mapState } from "vuex";
 import VueGallery from "vue-gallery";
+import Krpano from "../components/Krpano";
 export default {
-  name: "ImagensView",
+  name: "AreasComunsView",
   components: {
-    gallery: VueGallery
+    gallery: VueGallery,
+    Krpano
   },
   data() {
     return {
@@ -25,7 +25,8 @@ export default {
         "galeria/plantas/rox_AP2_large.png",
         "galeria/plantas/rox_AP3_large.png"
       ],
-      index: null
+      index: null,
+      xml: "../tours/plantas/terreo.xml"
     };
   },
   created() {

@@ -5,14 +5,17 @@
 </template>
 <script>
 import VueScript2 from "vue-script2";
+import { mapState } from "vuex";
 var obj;
 export default {
   name: "Ovr",
   data() {
     return {
-      innerHeight: window.innerHeight,
       imagescale: 2
     };
+  },
+  computed: {
+    ...mapState(["innerHeight"])
   },
   props: {
     xml: {
@@ -40,27 +43,17 @@ export default {
       });
   },
   methods: {
-    changeratio() {
-      let is = this.imagescale === 2 ? 4 : 2;
-      obj.readConfigString(
-        `<vrobject><view><viewer imagescaling="${is}"/></view></vrobject>`
-      );
-      this.imagescale = is;
-    },
     createOvr() {
       obj = new object2vrPlayer("container");
       obj.readConfigUrl(this.xml);
       obj.setCenter(0.46, 1);
       window.obj = obj;
       window.vm = this;
-      //this.enforceRatio();
     },
     enforceRatio() {
-      this.innerHeight = window.innerHeight;
       obj.setCenter(0.46, 1);
     }
   },
-  watch: {},
   beforeDestroy: function() {
     window.removeEventListener("resize", this.enforceRatio);
   },

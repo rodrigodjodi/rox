@@ -1,15 +1,21 @@
 <template>
-  <v-responsive :aspect-ratio="7/4" width="100%" :max-height="innerHeight">
+  <v-responsive
+    :aspect-ratio="7/4"
+    width="100%"
+    :height="fillheight ? innerHeight: undefined"
+    :max-height="innerHeight"
+    style="background:white;"
+  >
     <div class="krpano" id="viewer"></div>
   </v-responsive>
 </template>
 <script>
+import { mapState } from "vuex";
 import VueScript2 from "vue-script2";
 export default {
   name: "Krpano",
   data() {
     return {
-      innerHeight: window.innerHeight,
       flags: "MERGE",
       krpanoInstance: null
     };
@@ -36,8 +42,13 @@ export default {
           path: "mypath"
         };
       }
+    },
+    fillheight: {
+      type: Boolean,
+      default: false
     }
   },
+  computed: { ...mapState(["innerHeight"]) },
   methods: {
     createPano() {
       embedpano({
@@ -97,7 +108,6 @@ export default {
     },
     xml: function(xml) {
       if (this.krpanoInstance && xml) {
-        console.log(xml);
         this.krpanoInstance.call(
           `loadpano(${xml},null,IGNOREKEEP, BLEND(0.5))`
         );
@@ -135,6 +145,6 @@ export default {
 <style>
 .krpano {
   height: 100%;
-  min-height: 320px;
+  min-height: 240px;
 }
 </style>
