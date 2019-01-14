@@ -58,12 +58,13 @@ export default {
         onerror: this.krpanoError,
         wmode: "transparent",
         vars: this.vars,
-        initvars: this.initvars
+        initvars: this.initvars,
+        mobilescale: 0.5
       });
     },
     krpanoReady(krpanoInstance) {
       this.krpanoInstance = krpanoInstance;
-      //this.loadScene();
+      if (this.scene) this.loadScene();
     },
     krpanoError(error) {
       console.log(error);

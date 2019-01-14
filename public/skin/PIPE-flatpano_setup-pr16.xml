@@ -2,7 +2,7 @@
 	<!-- krpano 1.19 viewing and controlling setup for flat panos -->
 
 	<!-- view settings -->
-	<view fovtype="HFOV" fov="1.0" fovmax="1.0" maxpixelzoom="1.0" limitview="lookat" />
+	<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
 
 	<!-- control settings (drag2d for flat pano) -->
 	<control mousetype="drag" touchtype="drag" zoomtocursor="true" zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />

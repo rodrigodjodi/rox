@@ -2,7 +2,7 @@
   <v-container fluid class="pa-0">
     <v-layout row wrap>
       <v-flex xs12>
-        <Krpano :xml="xml" @error="krpanoerror" :fillheight="true"/>
+        <Krpano :xml="xml" :scene="scene" @error="krpanoerror" :fillheight="true"/>
       </v-flex>
     </v-layout>
   </v-container>
@@ -12,6 +12,7 @@
 import { mapState } from "vuex";
 import VueGallery from "vue-gallery";
 import Krpano from "../components/Krpano";
+
 export default {
   name: "AreasComunsView",
   components: {
@@ -26,11 +27,13 @@ export default {
         "galeria/plantas/rox_AP3_large.png"
       ],
       index: null,
-      xml: "../tours/plantas/terreo.xml"
+      xml: "../tours/plantas/areascomuns.xml",
+      scene: "terreo"
     };
   },
   created() {
     this.$store.commit("SET_TITLE", "áreas comuns");
+    window.vm = this;
   }
 };
 </script>

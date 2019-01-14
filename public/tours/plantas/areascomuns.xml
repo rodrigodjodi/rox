@@ -1,0 +1,117 @@
+﻿<krpano bgcolor="0xFFFFFF" basedir="%SWFPATH%">
+
+
+	<include url="../../skin/PIPE-flatpano_setup-pr16.xml" />
+	<!-- TROCA DE CENA -->
+    <style name="scn_btn" 
+        type="text" vcenter="true" bg="false" css="text-align:center;color:#FFF"
+        height="100%" width="33.33%"
+    />
+    <style name="scn_btn_active" 
+        type="text" vcenter="true" bg="true" css="text-align:center;color:#FFFFFF"
+        height="100%" width="33.33%"
+        bgcolor="0x5e354c" bgroundedge="4"
+    />
+    <layer name="skin_scene_change" bgcolor="0x5e354c"
+        bgalpha="0.3" bgborder="0x000"
+        bgroundedge="4" bgshadow="get:skin_settings.design_bgshadow"
+        type="container" align="top" width="300" height="40"  x="0" y="5"
+        onloaded="" zorder="3" keep="true"
+    >
+        <layer name="btn-subsolo"  html="SUBSOLO" style="scn_btn" 
+            ondown="loadstyle('scn_btn_active');
+				layer[btn-terreo].loadstyle('scn_btn');
+				layer[btn-cobertura].loadstyle('scn_btn');
+				scenechange" scene="subsolo"
+        />
+        <layer name="btn-terreo" html="TÉRREO" style="scn_btn_active" 
+            x="100"
+            ondown="loadstyle('scn_btn_active');
+				layer[btn-subsolo].loadstyle('scn_btn');
+				layer[btn-cobertura].loadstyle('scn_btn');
+				scenechange" scene="terreo"
+        />
+        <layer name="btn-cobertura" html="COBERTURA" style="scn_btn" 
+            x="200"
+            ondown="loadstyle('scn_btn_active');
+				layer[btn-subsolo].loadstyle('scn_btn');
+				layer[btn-terreo].loadstyle('scn_btn');
+				scenechange" scene="cobertura"
+        />
+    </layer>
+    <action name="scenechange" scope="local" type="Javascript">
+        vm.scene = caller.scene;
+    </action>
+    <action name="xmlchange" scope="local" type="Javascript">
+        vm.xml = caller.ambiente;
+    </action>
+
+<!-- FIM TROCA DE CENA -->
+<!-- SCENES -->
+	<scene  name="terreo">
+		<!-- preview pano image -->
+		<preview url="terreo.tiles/preview.jpg" />
+
+		<!-- pano image -->
+		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
+			<level tiledimagewidth="3584" tiledimageheight="2048">
+				<cylinder url="terreo.tiles/l4/%v/l4_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1792" tiledimageheight="1024">
+				<cylinder url="terreo.tiles/l3/%v/l3_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="768" tiledimageheight="440">
+				<cylinder url="terreo.tiles/l2/%v/l2_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="512" tiledimageheight="294">
+				<cylinder url="terreo.tiles/l1/%v/l1_%v_%h.jpg" />
+			</level>
+		</image>
+		<!--hotspots-->
+		<hotspot name="hall" ambiente="tours/areascomuns/hall.xml"
+			url="../../skin/rox_hs.png"
+			scale="1" ath="-0.18" atv="0.02"
+			alpha="0.9"
+			onclick="xmlchange"
+			
+			/>
+		
+
+	</scene>
+	<scene  name="subsolo">
+		<preview url="subsolo.tiles/preview.jpg" />
+		<!-- pano image -->
+		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
+			<level tiledimagewidth="3584" tiledimageheight="2048">
+				<cylinder url="subsolo.tiles/l4/%v/l4_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1792" tiledimageheight="1024">
+				<cylinder url="subsolo.tiles/l3/%v/l3_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="768" tiledimageheight="440">
+				<cylinder url="subsolo.tiles/l2/%v/l2_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="512" tiledimageheight="294">
+				<cylinder url="subsolo.tiles/l1/%v/l1_%v_%h.jpg" />
+			</level>
+		</image>
+	</scene>
+	<scene  name="cobertura">
+		<preview url="areascomuns.tiles/preview.jpg" />
+		<!-- pano image -->
+		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
+			<level tiledimagewidth="3584" tiledimageheight="2048">
+				<cylinder url="areascomuns.tiles/l4/%v/l4_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1792" tiledimageheight="1024">
+				<cylinder url="areascomuns.tiles/l3/%v/l3_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="768" tiledimageheight="440">
+				<cylinder url="areascomuns.tiles/l2/%v/l2_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="512" tiledimageheight="294">
+				<cylinder url="areascomuns.tiles/l1/%v/l1_%v_%h.jpg" />
+			</level>
+		</image>
+	</scene>
+</krpano>
