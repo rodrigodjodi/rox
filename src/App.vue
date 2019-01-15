@@ -1,11 +1,15 @@
 <template>
   <v-app>
-    <v-toolbar style="z-index:2000;" v-if="!sidenav"
-        color="transparent" class="elevation-0 ma-0"
-        floating absolute
-      >
-        <img src="./assets/rox-logo.png" alt="logo rox" id="roxlogo" width="64">
-      </v-toolbar>
+    <v-toolbar
+      style="z-index:2000;"
+      v-if="!sidenav"
+      color="transparent"
+      class="elevation-0 ma-0"
+      floating
+      absolute
+    >
+      <img src="./assets/rox-logo.png" alt="logo rox" id="roxlogo" width="64">
+    </v-toolbar>
     <v-navigation-drawer
       app
       clip
@@ -34,9 +38,7 @@
             </v-btn>
           </v-list-tile-action>
         </v-list-tile>
-      
 
-      
         <v-list-tile v-for="item in navitems" :key="item.texto" :to="item.route">
           <v-list-tile-action>
             <v-icon>{{ item.icone }}</v-icon>
@@ -49,14 +51,11 @@
     </v-navigation-drawer>
 
     <v-content>
-      
       <router-view></router-view>
     </v-content>
 
-    <v-bottom-nav app :value="!sidenav"  style="z-index:1001;"
-     height="48" fixed
-    >
-      <v-btn  v-for="item in navitems" :key="item.texto" :to="item.route">
+    <v-bottom-nav app :value="!sidenav" style="z-index:1001;" height="48" fixed>
+      <v-btn v-for="item in navitems" :key="item.texto" :to="item.route">
         <span>{{item.texto}}</span>
         <v-icon>{{item.icone}}</v-icon>
       </v-btn>
@@ -76,8 +75,8 @@ export default {
         { texto: "Apartamentos", icone: "view_quilt", route: "/apartamentos" },
         {
           texto: "Áreas comuns",
-          icone: "fitness_center",
-          route: "/areascomuns"
+          icone: "forum",
+          route: "/areascomuns/terreo"
         }
       ],
       mini: true
@@ -98,5 +97,4 @@ export default {
 };
 </script>
 <style>
-
 </style>

@@ -10,7 +10,7 @@
     >
       <v-flex slot="item" slot-scope="props" xs12 sm6 md4 lg3>
         <v-card>
-          <v-img :aspect-ratio="16/9" :src="`../tours/plantas/chave-${props.item.id}.png`">
+          <v-img :aspect-ratio="16/9" :src="`../tours/apartamentos/chave-${props.item.id}.png`">
             <div class="fill-height plantas-inset"></div>
           </v-img>
 

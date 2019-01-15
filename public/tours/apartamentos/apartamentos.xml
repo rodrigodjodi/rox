@@ -1,0 +1,250 @@
+﻿<krpano bgcolor="0xFFFFFF" basedir="%SWFPATH%">
+
+	<include url="../../skin/PIPE-flatpano_setup-pr16.xml" />
+	<style name="scn_btn" 
+        type="text" vcenter="true" bg="false" css="text-align:center;color:#FFF"
+        height="100%" width="50%"
+    />
+    <style name="scn_btn_active" 
+        type="text" vcenter="true" bg="true" css="text-align:center;color:#FFFFFF"
+        height="100%" width="50%"
+        bgcolor="0x5e354c" bgroundedge="4"
+    />
+<!-- SCENES -->
+	<scene name="final1">
+		<preview url="final1.tiles/preview.jpg" />
+		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
+			<level tiledimagewidth="3584" tiledimageheight="2048">
+				<cylinder url="final1.tiles/l4/%v/l4_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1792" tiledimageheight="1024">
+				<cylinder url="final1.tiles/l3/%v/l3_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="768" tiledimageheight="440">
+				<cylinder url="final1.tiles/l2/%v/l2_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="512" tiledimageheight="294">
+				<cylinder url="final1.tiles/l1/%v/l1_%v_%h.jpg" />
+			</level>
+		</image>
+	</scene>
+	<scene name="final2">
+		<preview url="final2.tiles/preview.jpg" />
+		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
+			<level tiledimagewidth="3584" tiledimageheight="2048">
+				<cylinder url="final2.tiles/l4/%v/l4_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1792" tiledimageheight="1024">
+				<cylinder url="final2.tiles/l3/%v/l3_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="768" tiledimageheight="440">
+				<cylinder url="final2.tiles/l2/%v/l2_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="512" tiledimageheight="294">
+				<cylinder url="final2.tiles/l1/%v/l1_%v_%h.jpg" />
+			</level>
+		</image>
+	</scene>
+	<scene name="final3">
+		<preview url="final3.tiles/preview.jpg" />
+		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
+			<level tiledimagewidth="3584" tiledimageheight="2048">
+				<cylinder url="final3.tiles/l4/%v/l4_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1792" tiledimageheight="1024">
+				<cylinder url="final3.tiles/l3/%v/l3_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="768" tiledimageheight="440">
+				<cylinder url="final3.tiles/l2/%v/l2_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="512" tiledimageheight="294">
+				<cylinder url="final3.tiles/l1/%v/l1_%v_%h.jpg" />
+			</level>
+		</image>
+	</scene>
+	<scene name="final4">
+		<preview url="final4.tiles/preview.jpg" />
+		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
+			<level tiledimagewidth="3584" tiledimageheight="2048">
+				<cylinder url="final4.tiles/l4/%v/l4_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1792" tiledimageheight="1024">
+				<cylinder url="final4.tiles/l3/%v/l3_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="768" tiledimageheight="440">
+				<cylinder url="final4.tiles/l2/%v/l2_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="512" tiledimageheight="294">
+				<cylinder url="final4.tiles/l1/%v/l1_%v_%h.jpg" />
+			</level>
+		</image>
+	</scene>
+	<scene name="final5">
+		<preview url="final5.tiles/preview.jpg" />
+		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
+			<level tiledimagewidth="3584" tiledimageheight="2048">
+				<cylinder url="final5.tiles/l4/%v/l4_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1792" tiledimageheight="1024">
+				<cylinder url="final5.tiles/l3/%v/l3_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="768" tiledimageheight="440">
+				<cylinder url="final5.tiles/l2/%v/l2_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="512" tiledimageheight="294">
+				<cylinder url="final5.tiles/l1/%v/l1_%v_%h.jpg" />
+			</level>
+		</image>
+	</scene>
+	<scene name="final6">
+		<preview url="final6.tiles/preview.jpg" />
+		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
+			<level tiledimagewidth="3584" tiledimageheight="2048">
+				<cylinder url="final6.tiles/l4/%v/l4_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1792" tiledimageheight="1024">
+				<cylinder url="final6.tiles/l3/%v/l3_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="768" tiledimageheight="440">
+				<cylinder url="final6.tiles/l2/%v/l2_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="512" tiledimageheight="294">
+				<cylinder url="final6.tiles/l1/%v/l1_%v_%h.jpg" />
+			</level>
+		</image>
+	</scene>
+	<scene name="dup1-inf">
+	<!-- TROCA DE CENA -->
+    
+    <layer name="skin_scene_change" bgcolor="0x5e354c"
+        bgalpha="0.3" bgborder="0x000"
+        bgroundedge="4" bgshadow="get:skin_settings.design_bgshadow"
+        type="container" align="top" width="200" height="40"  x="0" y="5"
+        onloaded="" zorder="3" keep="false" visible="true"
+    >
+        <layer name="btn-inferior"  html="INFERIOR" style="scn_btn_active" 
+            ondown=""
+        />
+        <layer name="btn-superior" html="SUPERIOR" style="scn_btn" 
+            x="100"  ondown="loadscene('coberturafinal1', null, MERGE , SLIDEBLEND(0.75, 180, 0.2, linear));"
+        />
+    </layer>
+<!-- FIM TROCA DE CENA -->
+		<preview url="dup1-inf.tiles/preview.jpg" />
+		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
+			<level tiledimagewidth="3584" tiledimageheight="2048">
+				<cylinder url="dup1-inf.tiles/l4/%v/l4_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1792" tiledimageheight="1024">
+				<cylinder url="dup1-inf.tiles/l3/%v/l3_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="768" tiledimageheight="440">
+				<cylinder url="dup1-inf.tiles/l2/%v/l2_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="512" tiledimageheight="294">
+				<cylinder url="dup1-inf.tiles/l1/%v/l1_%v_%h.jpg" />
+			</level>
+		</image>
+	</scene>
+
+	<scene name="coberturafinal1">
+		<!-- TROCA DE CENA -->
+    
+    <layer name="skin_scene_change" bgcolor="0x5e354c"
+        bgalpha="0.3" bgborder="0x000"
+        bgroundedge="4" bgshadow="get:skin_settings.design_bgshadow"
+        type="container" align="top" width="200" height="40"  x="0" y="5"
+        onloaded="" zorder="3" keep="false" visible="true"
+    >
+        <layer name="btn-inferior"  html="INFERIOR" style="scn_btn" 
+            ondown="loadscene('dup1-inf', null, MERGE , SLIDEBLEND(0.75, 0.0, 0.2, linear));"
+        />
+        <layer name="btn-superior" html="SUPERIOR" style="scn_btn_active" 
+            x="100"  ondown=""
+        />
+    </layer>
+<!-- FIM TROCA DE CENA -->
+		<preview url="dup1-sup.tiles/preview.jpg" />
+		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
+			<level tiledimagewidth="3584" tiledimageheight="2048">
+				<cylinder url="dup1-sup.tiles/l4/%v/l4_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1792" tiledimageheight="1024">
+				<cylinder url="dup1-sup.tiles/l3/%v/l3_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="768" tiledimageheight="440">
+				<cylinder url="dup1-sup.tiles/l2/%v/l2_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="512" tiledimageheight="294">
+				<cylinder url="dup1-sup.tiles/l1/%v/l1_%v_%h.jpg" />
+			</level>
+		</image>
+	</scene>
+	<scene name="dup2-inf">
+		<!-- TROCA DE CENA -->
+    
+    <layer name="skin_scene_change" bgcolor="0x5e354c"
+        bgalpha="0.3" bgborder="0x000"
+        bgroundedge="4" bgshadow="get:skin_settings.design_bgshadow"
+        type="container" align="top" width="200" height="40"  x="0" y="5"
+        onloaded="" zorder="3" keep="false" visible="true"
+    >
+        <layer name="btn-inferior"  html="INFERIOR" style="scn_btn_active" 
+            ondown=""
+        />
+        <layer name="btn-superior" html="SUPERIOR" style="scn_btn" 
+            x="100"  ondown="loadscene('coberturafinal2', null, MERGE , SLIDEBLEND(0.75, 180, 0.2, linear));"
+        />
+    </layer>
+<!-- FIM TROCA DE CENA -->
+		<preview url="dup2-inf.tiles/preview.jpg" />
+		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
+			<level tiledimagewidth="3584" tiledimageheight="2048">
+				<cylinder url="dup2-inf.tiles/l4/%v/l4_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1792" tiledimageheight="1024">
+				<cylinder url="dup2-inf.tiles/l3/%v/l3_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="768" tiledimageheight="440">
+				<cylinder url="dup2-inf.tiles/l2/%v/l2_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="512" tiledimageheight="294">
+				<cylinder url="dup2-inf.tiles/l1/%v/l1_%v_%h.jpg" />
+			</level>
+		</image>
+	</scene>
+	<scene name="coberturafinal2">
+		<!-- TROCA DE CENA -->
+    
+    <layer name="skin_scene_change" bgcolor="0x5e354c"
+        bgalpha="0.3" bgborder="0x000"
+        bgroundedge="4" bgshadow="get:skin_settings.design_bgshadow"
+        type="container" align="top" width="200" height="40"  x="0" y="5"
+        onloaded="" zorder="3" keep="false" visible="true"
+    >
+        <layer name="btn-inferior"  html="INFERIOR" style="scn_btn" 
+            ondown="loadscene('dup2-inf', null, MERGE , SLIDEBLEND(0.75, 0.0, 0.2, linear));"
+        />
+        <layer name="btn-superior" html="SUPERIOR" style="scn_btn_active" 
+            x="100"  ondown=""
+        />
+    </layer>
+<!-- FIM TROCA DE CENA -->
+		<preview url="dup2-sup.tiles/preview.jpg" />
+		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
+			<level tiledimagewidth="3584" tiledimageheight="2048">
+				<cylinder url="dup2-sup.tiles/l4/%v/l4_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1792" tiledimageheight="1024">
+				<cylinder url="dup2-sup.tiles/l3/%v/l3_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="768" tiledimageheight="440">
+				<cylinder url="dup2-sup.tiles/l2/%v/l2_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="512" tiledimageheight="294">
+				<cylinder url="dup2-sup.tiles/l1/%v/l1_%v_%h.jpg" />
+			</level>
+		</image>
+	</scene>
+	
+</krpano>

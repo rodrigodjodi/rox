@@ -82,10 +82,14 @@ export default {
       let scene = this.scene;
       if (!this.krpanoInstance) return;
       if (scene) {
-        let str = `trace(${scene});
-                if(scene[${scene}]===null,
-                loadscene(get(scene[0].name),null,${this.flags},BLEND(0.5)),
-                loadscene(${scene},null,${this.flags},BLEND(0.5)))`;
+        let str = `
+                if( scene[${scene}] !== null,
+                  
+                  loadscene(${scene},null,${this.flags},BLEND(0.5)),
+
+                  error("Cena ${scene} não encontrada")
+                
+                )`;
         this.krpanoInstance.call(str);
         this.$emit("sceneChanged", scene);
       } else {

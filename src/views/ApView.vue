@@ -2,7 +2,7 @@
   <v-container fluid class="pa-0">
     <v-layout row wrap>
       <v-flex xs12 sm7 md9 lg10>
-        <Krpano :xml="xml" @error="krpanoerror"/>
+        <Krpano :xml="xml" :scene="scene" @error="krpanoerror"/>
       </v-flex>
       <v-flex xs12 sm5 md3 lg2 class="apInfo pa-2">
         <v-select
@@ -38,7 +38,7 @@
             <v-list-tile-content color="white">{{ ap.vagas }}</v-list-tile-content>
           </v-list-tile>
         </v-list>
-        <v-img :aspect-ratio="16/9" :src="`../tours/plantas/chave-${ap.id}.png`"></v-img>
+        <v-img :aspect-ratio="16/9" :src="`../tours/apartamentos/chave-${ap.id}.png`"></v-img>
       </v-flex>
     </v-layout>
   </v-container>
@@ -55,13 +55,14 @@ export default {
   data() {
     return {
       ap: null,
-      apRoute: null
+      apRoute: null,
+      xml: "../tours/apartamentos/apartamentos.xml"
     };
   },
   computed: {
     ...mapState(["apartamentos"]),
-    xml() {
-      return `../tours/plantas/${this.ap.id}.xml`;
+    scene() {
+      return this.ap.id;
     }
   },
   methods: {

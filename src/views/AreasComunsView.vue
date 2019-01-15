@@ -27,13 +27,25 @@ export default {
         "galeria/plantas/rox_AP3_large.png"
       ],
       index: null,
-      xml: "../tours/plantas/areascomuns.xml",
-      scene: "terreo"
+      xml: "../tours/areascomuns/areascomuns.xml"
     };
+  },
+  computed: {
+    scene() {
+      return this.$route.params.cena;
+    }
+  },
+  methods: {
+    krpanoerror(err) {
+      console.error(err);
+    }
   },
   created() {
     this.$store.commit("SET_TITLE", "áreas comuns");
     window.vm = this;
+  },
+  destroyed() {
+    console.log("krpano destroyed");
   }
 };
 </script>
