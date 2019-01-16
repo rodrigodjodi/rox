@@ -1,6 +1,7 @@
 ﻿<krpano bgcolor="0xFFFFFF" basedir="%SWFPATH%">
 
-	<include url="../../skin/PIPE-flatpano_setup-pr16.xml" />
+	<include url="%HTMLPATH%//skin/PIPE-flatpano_setup-pr16.xml" />
+	<include url="%HTMLPATH%//plugins/circle_hotspots.xml"/>
 	<style name="scn_btn" 
         type="text" vcenter="true" bg="false" css="text-align:center;color:#FFF"
         height="100%" width="50%"
@@ -11,7 +12,10 @@
         bgcolor="0x5e354c" bgroundedge="4"
     />
 <!-- SCENES -->
-	<scene name="final1">
+	<scene name="final1" onstart="flatpano_startup()">
+		<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
+		<control mousetype="drag" touchtype="drag" zoomtocursor="true" 
+		zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />
 		<preview url="final1.tiles/preview.jpg" />
 		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
 			<level tiledimagewidth="3584" tiledimageheight="2048">
@@ -28,7 +32,10 @@
 			</level>
 		</image>
 	</scene>
-	<scene name="final2">
+	<scene name="final2" onstart="flatpano_startup()">
+		<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
+		<control mousetype="drag" touchtype="drag" zoomtocursor="true" 
+		zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />
 		<preview url="final2.tiles/preview.jpg" />
 		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
 			<level tiledimagewidth="3584" tiledimageheight="2048">
@@ -45,7 +52,10 @@
 			</level>
 		</image>
 	</scene>
-	<scene name="final3">
+	<scene name="final3" onstart="flatpano_startup()">
+		<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
+		<control mousetype="drag" touchtype="drag" zoomtocursor="true" 
+		zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />
 		<preview url="final3.tiles/preview.jpg" />
 		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
 			<level tiledimagewidth="3584" tiledimageheight="2048">
@@ -62,7 +72,10 @@
 			</level>
 		</image>
 	</scene>
-	<scene name="final4">
+	<scene name="final4" onstart="flatpano_startup()">
+		<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
+		<control mousetype="drag" touchtype="drag" zoomtocursor="true" 
+		zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />
 		<preview url="final4.tiles/preview.jpg" />
 		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
 			<level tiledimagewidth="3584" tiledimageheight="2048">
@@ -79,7 +92,26 @@
 			</level>
 		</image>
 	</scene>
-	<scene name="final5">
+
+	<scene name="final5" onstart="flatpano_startup()">
+		<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
+		<control mousetype="drag" touchtype="drag" zoomtocursor="true" 
+		zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />
+		<!-- TROCA DE CENA -->
+		<layer name="skin_scene_change" bgcolor="0x5e354c"
+			bgalpha="0.3" bgborder="0x000"
+			bgroundedge="4" bgshadow="get:skin_settings.design_bgshadow"
+			type="container" align="top" width="200" height="40"  x="0" y="5"
+			onloaded="" zorder="3" keep="false" visible="true"
+		>
+			<layer name="btn-inferior"  html="PADRÃO" style="scn_btn_active" 
+				ondown=""
+			/>
+			<layer name="btn-superior" html="SALA AMPLIADA" style="scn_btn" 
+				x="100"  ondown="loadscene('final5E', null, MERGE , SLIDEBLEND(0.75, 180.0, 0.2, linear));"
+			/>
+		</layer>
+		<!-- FIM TROCA DE CENA -->
 		<preview url="final5.tiles/preview.jpg" />
 		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
 			<level tiledimagewidth="3584" tiledimageheight="2048">
@@ -95,8 +127,65 @@
 				<cylinder url="final5.tiles/l1/%v/l1_%v_%h.jpg" />
 			</level>
 		</image>
+		<hotspot name="final5-estar" ath="-0.15" atv="0.1" style="hs_circle" tag="ESTAR" route="final5/estar" />
+		<hotspot name="final5-suite" ath="0" atv="0" style="hs_circle" tag="SUÍTE" route="final5/suite" />
 	</scene>
-	<scene name="final6">
+
+	<scene name="final5E" onstart="flatpano_startup()">
+		<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
+		<control mousetype="drag" touchtype="drag" zoomtocursor="true" 
+		zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />
+		<!-- TROCA DE CENA -->
+		<layer name="skin_scene_change" bgcolor="0x5e354c"
+			bgalpha="0.3" bgborder="0x000"
+			bgroundedge="4" bgshadow="get:skin_settings.design_bgshadow"
+			type="container" align="top" width="200" height="40"  x="0" y="5"
+			onloaded="" zorder="3" keep="false" visible="true"
+		>
+			<layer name="btn-inferior"  html="PADRÃO" style="scn_btn" 
+				ondown="loadscene('final5', null, MERGE , SLIDEBLEND(0.75, 0.0, 0.2, linear));"
+			/>
+			<layer name="btn-superior" html="SALA AMPLIADA" style="scn_btn_active" 
+				x="100"  ondown=""
+			/>
+		</layer>
+		<!-- FIM TROCA DE CENA -->
+		<preview url="final5c.tiles/preview.jpg" />
+		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
+			<level tiledimagewidth="3584" tiledimageheight="2048">
+				<cylinder url="final5c.tiles/l4/%v/l4_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1792" tiledimageheight="1024">
+				<cylinder url="final5c.tiles/l3/%v/l3_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="768" tiledimageheight="440">
+				<cylinder url="final5c.tiles/l2/%v/l2_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="512" tiledimageheight="294">
+				<cylinder url="final5c.tiles/l1/%v/l1_%v_%h.jpg" />
+			</level>
+		</image>
+	</scene>
+
+	<scene name="final6" onstart="flatpano_startup()">
+		<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
+		<control mousetype="drag" touchtype="drag" zoomtocursor="true" 
+		zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />
+		<!-- TROCA DE CENA -->
+		<layer name="skin_scene_change" bgcolor="0x5e354c"
+			bgalpha="0.3" bgborder="0x000"
+			bgroundedge="4" bgshadow="get:skin_settings.design_bgshadow"
+			type="container" align="top" width="200" height="40"  x="0" y="5"
+			onloaded="" zorder="3" keep="false" visible="true"
+		>
+			<layer name="btn-inferior"  html="PADRÃO" style="scn_btn_active" 
+				ondown=""
+			/>
+			<layer name="btn-superior" html="SALA AMPLIADA" style="scn_btn" 
+				x="100"  ondown="loadscene('final6E', null, MERGE , SLIDEBLEND(0.75, 180.0, 0.2, linear));"
+			/>
+		</layer>
+		<!-- FIM TROCA DE CENA -->
 		<preview url="final6.tiles/preview.jpg" />
 		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
 			<level tiledimagewidth="3584" tiledimageheight="2048">
@@ -113,23 +202,61 @@
 			</level>
 		</image>
 	</scene>
-	<scene name="dup1-inf">
-	<!-- TROCA DE CENA -->
-    
-    <layer name="skin_scene_change" bgcolor="0x5e354c"
-        bgalpha="0.3" bgborder="0x000"
-        bgroundedge="4" bgshadow="get:skin_settings.design_bgshadow"
-        type="container" align="top" width="200" height="40"  x="0" y="5"
-        onloaded="" zorder="3" keep="false" visible="true"
-    >
-        <layer name="btn-inferior"  html="INFERIOR" style="scn_btn_active" 
-            ondown=""
-        />
-        <layer name="btn-superior" html="SUPERIOR" style="scn_btn" 
-            x="100"  ondown="loadscene('coberturafinal1', null, MERGE , SLIDEBLEND(0.75, 180, 0.2, linear));"
-        />
-    </layer>
-<!-- FIM TROCA DE CENA -->
+	
+	<scene name="final6E" onstart="flatpano_startup()">
+		<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
+		<control mousetype="drag" touchtype="drag" zoomtocursor="true" 
+		zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />
+		<!-- TROCA DE CENA -->
+		<layer name="skin_scene_change" bgcolor="0x5e354c"
+			bgalpha="0.3" bgborder="0x000"
+			bgroundedge="4" bgshadow="get:skin_settings.design_bgshadow"
+			type="container" align="top" width="200" height="40"  x="0" y="5"
+			onloaded="" zorder="3" keep="false" visible="true"
+		>
+			<layer name="btn-inferior"  html="PADRÃO" style="scn_btn" 
+				ondown="loadscene('final6', null, MERGE , SLIDEBLEND(0.75, 0.0, 0.2, linear));"
+			/>
+			<layer name="btn-superior" html="SALA AMPLIADA" style="scn_btn_active" 
+				x="100"  ondown=""
+			/>
+		</layer>
+		<!-- FIM TROCA DE CENA -->
+		<preview url="final6b.tiles/preview.jpg" />
+		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
+			<level tiledimagewidth="3584" tiledimageheight="2048">
+				<cylinder url="final6b.tiles/l4/%v/l4_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1792" tiledimageheight="1024">
+				<cylinder url="final6b.tiles/l3/%v/l3_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="768" tiledimageheight="440">
+				<cylinder url="final6b.tiles/l2/%v/l2_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="512" tiledimageheight="294">
+				<cylinder url="final6b.tiles/l1/%v/l1_%v_%h.jpg" />
+			</level>
+		</image>
+	</scene>
+
+	<scene name="dup1-inf" onstart="flatpano_startup()">
+		<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
+		<control mousetype="drag" touchtype="drag" zoomtocursor="true" 
+		zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />
+		<layer name="skin_scene_change" bgcolor="0x5e354c"
+			bgalpha="0.3" bgborder="0x000"
+			bgroundedge="4" bgshadow="get:skin_settings.design_bgshadow"
+			type="container" align="top" width="200" height="40"  x="0" y="5"
+			onloaded="" zorder="3" keep="false" visible="true"
+		>
+			<layer name="btn-inferior"  html="INFERIOR" style="scn_btn_active" 
+				ondown=""
+			/>
+			<layer name="btn-superior" html="SUPERIOR" style="scn_btn" 
+				x="100"  ondown="loadscene('coberturafinal1', null, MERGE , SLIDEBLEND(0.75, 180, 0.2, linear));"
+			/>
+		</layer>
+		<!-- FIM TROCA DE CENA -->
 		<preview url="dup1-inf.tiles/preview.jpg" />
 		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
 			<level tiledimagewidth="3584" tiledimageheight="2048">
@@ -147,23 +274,25 @@
 		</image>
 	</scene>
 
-	<scene name="coberturafinal1">
+	<scene name="coberturafinal1" onstart="flatpano_startup()">
+		<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
+		<control mousetype="drag" touchtype="drag" zoomtocursor="true" 
+		zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />	
 		<!-- TROCA DE CENA -->
-    
-    <layer name="skin_scene_change" bgcolor="0x5e354c"
-        bgalpha="0.3" bgborder="0x000"
-        bgroundedge="4" bgshadow="get:skin_settings.design_bgshadow"
-        type="container" align="top" width="200" height="40"  x="0" y="5"
-        onloaded="" zorder="3" keep="false" visible="true"
-    >
-        <layer name="btn-inferior"  html="INFERIOR" style="scn_btn" 
-            ondown="loadscene('dup1-inf', null, MERGE , SLIDEBLEND(0.75, 0.0, 0.2, linear));"
-        />
-        <layer name="btn-superior" html="SUPERIOR" style="scn_btn_active" 
-            x="100"  ondown=""
-        />
-    </layer>
-<!-- FIM TROCA DE CENA -->
+		<layer name="skin_scene_change" bgcolor="0x5e354c"
+			bgalpha="0.3" bgborder="0x000"
+			bgroundedge="4" bgshadow="get:skin_settings.design_bgshadow"
+			type="container" align="top" width="200" height="40"  x="0" y="5"
+			onloaded="" zorder="3" keep="false" visible="true"
+		>
+			<layer name="btn-inferior"  html="INFERIOR" style="scn_btn" 
+				ondown="loadscene('dup1-inf', null, MERGE , SLIDEBLEND(0.75, 0.0, 0.2, linear));"
+			/>
+			<layer name="btn-superior" html="SUPERIOR" style="scn_btn_active" 
+				x="100"  ondown=""
+			/>
+		</layer>
+		<!-- FIM TROCA DE CENA -->
 		<preview url="dup1-sup.tiles/preview.jpg" />
 		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
 			<level tiledimagewidth="3584" tiledimageheight="2048">
@@ -180,23 +309,25 @@
 			</level>
 		</image>
 	</scene>
-	<scene name="dup2-inf">
-		<!-- TROCA DE CENA -->
-    
-    <layer name="skin_scene_change" bgcolor="0x5e354c"
-        bgalpha="0.3" bgborder="0x000"
-        bgroundedge="4" bgshadow="get:skin_settings.design_bgshadow"
-        type="container" align="top" width="200" height="40"  x="0" y="5"
-        onloaded="" zorder="3" keep="false" visible="true"
-    >
-        <layer name="btn-inferior"  html="INFERIOR" style="scn_btn_active" 
-            ondown=""
-        />
-        <layer name="btn-superior" html="SUPERIOR" style="scn_btn" 
-            x="100"  ondown="loadscene('coberturafinal2', null, MERGE , SLIDEBLEND(0.75, 180, 0.2, linear));"
-        />
-    </layer>
-<!-- FIM TROCA DE CENA -->
+
+	<scene name="dup2-inf" onstart="flatpano_startup()">
+		<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
+		<control mousetype="drag" touchtype="drag" zoomtocursor="true" 
+		zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />
+		<layer name="skin_scene_change" bgcolor="0x5e354c"
+			bgalpha="0.3" bgborder="0x000"
+			bgroundedge="4" bgshadow="get:skin_settings.design_bgshadow"
+			type="container" align="top" width="200" height="40"  x="0" y="5"
+			onloaded="" zorder="3" keep="false" visible="true"
+		>
+			<layer name="btn-inferior"  html="INFERIOR" style="scn_btn_active" 
+				ondown=""
+			/>
+			<layer name="btn-superior" html="SUPERIOR" style="scn_btn" 
+				x="100"  ondown="loadscene('coberturafinal2', null, MERGE , SLIDEBLEND(0.75, 180, 0.2, linear));"
+			/>
+		</layer>
+		<!-- FIM TROCA DE CENA -->
 		<preview url="dup2-inf.tiles/preview.jpg" />
 		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
 			<level tiledimagewidth="3584" tiledimageheight="2048">
@@ -213,23 +344,25 @@
 			</level>
 		</image>
 	</scene>
-	<scene name="coberturafinal2">
-		<!-- TROCA DE CENA -->
-    
-    <layer name="skin_scene_change" bgcolor="0x5e354c"
-        bgalpha="0.3" bgborder="0x000"
-        bgroundedge="4" bgshadow="get:skin_settings.design_bgshadow"
-        type="container" align="top" width="200" height="40"  x="0" y="5"
-        onloaded="" zorder="3" keep="false" visible="true"
-    >
-        <layer name="btn-inferior"  html="INFERIOR" style="scn_btn" 
-            ondown="loadscene('dup2-inf', null, MERGE , SLIDEBLEND(0.75, 0.0, 0.2, linear));"
-        />
-        <layer name="btn-superior" html="SUPERIOR" style="scn_btn_active" 
-            x="100"  ondown=""
-        />
-    </layer>
-<!-- FIM TROCA DE CENA -->
+
+	<scene name="coberturafinal2" onstart="flatpano_startup()">
+		<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
+		<control mousetype="drag" touchtype="drag" zoomtocursor="true" 
+		zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />
+		<layer name="skin_scene_change" bgcolor="0x5e354c"
+			bgalpha="0.3" bgborder="0x000"
+			bgroundedge="4" bgshadow="get:skin_settings.design_bgshadow"
+			type="container" align="top" width="200" height="40"  x="0" y="5"
+			onloaded="" zorder="3" keep="false" visible="true"
+		>
+			<layer name="btn-inferior"  html="INFERIOR" style="scn_btn" 
+				ondown="loadscene('dup2-inf', null, MERGE , SLIDEBLEND(0.75, 0.0, 0.2, linear));"
+			/>
+			<layer name="btn-superior" html="SUPERIOR" style="scn_btn_active" 
+				x="100"  ondown=""
+			/>
+		</layer>
+		<!-- FIM TROCA DE CENA -->
 		<preview url="dup2-sup.tiles/preview.jpg" />
 		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
 			<level tiledimagewidth="3584" tiledimageheight="2048">
@@ -247,4 +380,26 @@
 		</image>
 	</scene>
 	
+	<!-- CENAS APARTAMENTO FINAL 5 -->
+	<scene name="final5-estar">
+		<view hlookat="90.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<preview url="3_1-estar.tiles/preview.jpg" />
+		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
+			<level tiledimagewidth="2560" tiledimageheight="2560">
+				<cube url="3_1-estar.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1280" tiledimageheight="1280">
+				<cube url="3_1-estar.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="640" tiledimageheight="640">
+				<cube url="3_1-estar.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+			</level>
+		</image>
+		<image if="webvr.isenabled">
+			<cube url="3_1-estar.tiles/vr/pano_%s.jpg" />
+		</image>
+	</scene>
+	<!-- FIM CENAS APARTAMENTO FINAL 5 -->
+	<!-- CENAS APARTAMENTO FINAL 6 -->
+	<!-- FIM CENAS APARTAMENTO FINAL 6 -->
 </krpano>

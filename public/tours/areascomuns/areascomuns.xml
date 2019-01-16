@@ -1,8 +1,8 @@
 ﻿<krpano bgcolor="0xFFFFFF" basedir="%SWFPATH%">
 
 
-	<include url="../../skin/PIPE-flatpano_setup-pr16.xml" />
-	<include url="../../plugins/circle_hotspots.xml"/>
+	<include url="%HTMLPATH%//skin/PIPE-flatpano_setup-pr16.xml" />
+	<include url="%HTMLPATH%//plugins/circle_hotspots.xml"/>
 	<!-- TROCA DE CENA -->
     <style name="scn_btn" 
         type="text" vcenter="true" bg="false" css="text-align:center;color:#FFF"
@@ -49,17 +49,14 @@
     <action name="scenechange" scope="local" type="Javascript">
         vm.$router.push(caller.scene)
     </action>
-    <action name="xmlchange" scope="local" type="Javascript">
-        vm.xml = caller.ambiente;
-    </action>
 
 <!-- FIM TROCA DE CENA -->
 <!-- SCENES -->
-	<scene  name="terreo" onstart="load_plan_view()">
-		<!-- preview pano image -->
+	<scene  name="terreo" onstart="load_plan_view(); flatpano_startup();">
 		<preview url="terreo.tiles/preview.jpg" />
-
-		<!-- pano image -->
+		<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
+		<control mousetype="drag" touchtype="drag" zoomtocursor="true" 
+		zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />
 		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
 			<level tiledimagewidth="3584" tiledimageheight="2048">
 				<cylinder url="terreo.tiles/l4/%v/l4_%v_%h.jpg" />
@@ -75,15 +72,18 @@
 			</level>
 		</image>
 		<!--hotspots-->
-		<hotspot name="hall" ath="-0.18" atv="0.02" style="hs_circle" tag="HALL SOCIAL" />
-		<hotspot name="salao" ath="-0.15" atv="-0.06" style="hs_circle" tag="SALÃO DE FESTAS" />
-		<hotspot name="gourmet" ath="-0.01" atv="-0.09" style="hs_circle" tag="GOURMETERIA" />
-		<hotspot name="office" ath="-0.19" atv="0.11" style="hs_circle" tag="OFFICE" />
-		<hotspot name="reunioes" ath="-0.23" atv="0.09" style="hs_circle" tag="REUNIÕES" />
-		<hotspot name="brinquedoteca" ath="0.14" atv="-0.01" style="hs_circle" tag="BRINQUEDOTECA" />
+		<hotspot name="hall" ath="-0.18" atv="0.02" style="hs_circle" tag="HALL SOCIAL" route="hall" />
+		<hotspot name="salao" ath="-0.15" atv="-0.06" style="hs_circle" tag="SALÃO DE FESTAS" route="salao" />
+		<hotspot name="gourmet" ath="-0.01" atv="-0.09" style="hs_circle" tag="GOURMETERIA" route="gourmet" />
+		<hotspot name="office" ath="-0.19" atv="0.11" style="hs_circle" tag="OFFICE" route="office"  />
+		<hotspot name="reunioes" ath="-0.23" atv="0.09" style="hs_circle" tag="REUNIÕES" route="reunioes"/>
+		<hotspot name="brinquedoteca" ath="0.14" atv="-0.01" style="hs_circle" tag="BRINQUEDOTECA" route="brinquedoteca"/>
 	</scene>
 
-	<scene  name="subsolo" onstart="load_plan_view()">
+	<scene  name="subsolo"  onstart="load_plan_view(); flatpano_startup();">
+		<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
+		<control mousetype="drag" touchtype="drag" zoomtocursor="true" 
+		zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />
 		<preview url="subsolo.tiles/preview.jpg" />
 		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
 			<level tiledimagewidth="3584" tiledimageheight="2048">
@@ -101,7 +101,10 @@
 		</image>
 	</scene>
 
-	<scene  name="cobertura" onstart="load_plan_view()">
+	<scene  name="cobertura" onstart="load_plan_view(); flatpano_startup();">
+		<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
+		<control mousetype="drag" touchtype="drag" zoomtocursor="true" 
+		zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />
 		<preview url="areascomuns.tiles/preview.jpg" />
 		<!-- pano image -->
 		<image type="CYLINDER" hfov="1.00" vfov="0.571429" voffset="0.00" multires="true" tilesize="512">
@@ -119,8 +122,8 @@
 			</level>
 		</image>
 		<!--hotspots-->
-		<hotspot name="academia" ath="0.24" atv="0.05" style="hs_circle" tag="ACADEMIA" />
-		<hotspot name="rooftop" ath="-0.15" atv="-0.13" style="hs_circle" tag="ROOFTOP" />
+		<hotspot name="academia" ath="0.24" atv="0.05" style="hs_circle" tag="ACADEMIA" route="academia" />
+		<hotspot name="rooftop" ath="-0.15" atv="-0.13" style="hs_circle" tag="ROOFTOP" route="rooftop"/>
 	</scene>
 
 	<scene  name="hall" onstart="load_pano_view();" havevrimage="true">

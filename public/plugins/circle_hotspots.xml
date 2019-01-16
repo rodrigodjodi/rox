@@ -34,7 +34,7 @@
                 txtadd(layer[get(l)].ondown, 'select_hs();');););
     </action>
     <action name="vue_change_route"  scope="local" type="Javascript">
-        vm.$router.push(caller.name)
+        vm.$router.push(caller.route);
     </action>
     
     <!-- Main Circle Hotspots Style, the one user sees right away -->

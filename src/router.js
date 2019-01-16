@@ -31,6 +31,14 @@ export default new Router({
       component: () => import(/* webpackChunkName: "ap" */ "./views/ApView.vue")
     },
     {
+      path: "/apartamentos/:ap/:cena",
+      name: "cenaapartamento",
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "ap" */ "./views/ApView.vue")
+    },
+    {
       path: "/areascomuns/:cena",
       name: "areascomuns",
       // route level code-splitting

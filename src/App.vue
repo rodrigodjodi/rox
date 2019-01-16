@@ -93,6 +93,7 @@ export default {
     window.addEventListener("resize", () => {
       this.$store.commit("ON_RESIZE", window.innerHeight);
     });
+    window.vm = this;
   }
 };
 </script>

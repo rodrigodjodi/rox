@@ -16,7 +16,7 @@ export default {
   name: "Krpano",
   data() {
     return {
-      flags: "MERGE",
+      flags: "null",
       krpanoInstance: null
     };
   },
@@ -104,11 +104,7 @@ export default {
   },
   watch: {
     scene: function(newScene, oldScene) {
-      if (oldScene.split("-")[0] === newScene.split("-")[0]) {
-        this.flags = "MERGE|KEEPVIEW";
-      } else {
-        this.flags = "MERGE";
-      }
+      this.flags = "null";
       this.loadScene();
     },
     xml: function(xml) {
@@ -121,7 +117,7 @@ export default {
     }
   },
   created() {
-    VueScript2.load("../krpano.js")
+    VueScript2.load(`${process.env.BASE_URL}krpano.js`)
       .then(() => {
         console.log("krpano carregado");
         //SE tudo deu certo tem que ter os objetos embedpano, removepano

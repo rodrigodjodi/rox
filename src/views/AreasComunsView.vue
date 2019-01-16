@@ -42,7 +42,6 @@ export default {
   },
   created() {
     this.$store.commit("SET_TITLE", "áreas comuns");
-    window.vm = this;
   },
   destroyed() {
     console.log("krpano destroyed");

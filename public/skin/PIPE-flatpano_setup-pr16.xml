@@ -1,16 +1,17 @@
 ﻿<krpano>
 	<!-- krpano 1.19 viewing and controlling setup for flat panos -->
 
-	<!-- view settings -->
+	<!-- view settings 
 	<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
-
-	<!-- control settings (drag2d for flat pano) -->
+	-->
+	<!-- control settings (drag2d for flat pano) 
 	<control mousetype="drag" touchtype="drag" zoomtocursor="true" zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />
+	-->
 
-
-	<!-- events and actions for adjusting the view settings to see the whole image -->
-	<events name="flatpano_events" onnewpano="callwhen(area.pixelwidth GT 0 AND area.pixelheight GT 0, flatpano_startup() );" onresize="flatpano_imagefit();" />
-
+	<!-- events and actions for adjusting the view settings to see the whole image 
+	removed: onnewpano="callwhen(area.pixelwidth GT 0 AND area.pixelheight GT 0, flatpano_startup() );"
+	-->
+	<events name="flatpano_events"  onresize="flatpano_imagefit();" />
 	<!-- setup the view to show the whole image at startup -->
 	<action name="flatpano_startup">
 		div(pano_aspectratio, image.hfov, image.vfov);
