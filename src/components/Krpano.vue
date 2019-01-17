@@ -2,8 +2,8 @@
   <v-responsive
     :aspect-ratio="7/4"
     width="100%"
-    :height="fillheight ? innerHeight: undefined"
-    :max-height="innerHeight"
+    :height="fillheight ? panoheight : undefined"
+    :max-height="panoheight"
     style="background:white;"
   >
     <div class="krpano" id="viewer"></div>
@@ -48,7 +48,12 @@ export default {
       default: false
     }
   },
-  computed: { ...mapState(["innerHeight"]) },
+  computed: {
+    ...mapState(["innerHeight"]),
+    panoheight() {
+      return this.innerHeight < 480 ? this.innerHeight : this.innerHeight - 48;
+    }
+  },
   methods: {
     createPano() {
       embedpano({
@@ -135,12 +140,8 @@ export default {
         console.error(err);
       });
   },
-  beforeDestroy: function() {
-    window.removeEventListener("resize", this.enforceRatio);
-  },
-  mounted() {
-    window.addEventListener("resize", this.enforceRatio);
-  }
+  beforeDestroy: function() {},
+  mounted() {}
 };
 </script>
 <style>

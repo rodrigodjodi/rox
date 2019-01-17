@@ -2,7 +2,7 @@
   <div style="height: 100%;">
     <ovr xml="../ovr/ROX_OVR_00_out.xml" @hsClick="triggerNavOption"></ovr>
     <v-snackbar v-model="snackbar" top :timeout="4000">
-      {{ text }}
+      <span @click="snackbar=false">{{ text }}</span>
       <v-btn color="pink" flat @click="$router.push(route)">Ver</v-btn>
     </v-snackbar>
   </div>

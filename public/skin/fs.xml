@@ -1,0 +1,10 @@
+<krpano>
+    <layer name="btn_fs" url="%HTMLPATH%//skin/baseline_fullscreen_black_48dp.png" keep="true" align="righttop"
+        alpha="0.67"
+        onclick="toggle(fullscreen);"
+    />
+    <events name="fs_events" keep="true"
+        onenterfullscreen="set(layer['btn_fs'].url, %HTMLPATH%//skin/baseline_fullscreen_exit_black_48dp.png)"
+        onexitfullscreen="set(layer['btn_fs'].url, %HTMLPATH%//skin/baseline_fullscreen_black_48dp.png)"
+    />
+</krpano>

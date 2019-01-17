@@ -1,8 +1,19 @@
 ﻿<krpano bgcolor="0xFFFFFF" basedir="%SWFPATH%">
-
-
+	<!-- 
+	<events keep="true" name="trace_on_idle" onidle="Print()" />
+	<action name="Print">
+		showlog();
+		set(_print, calc:'hlookat="' + view.hlookat + '" vlookat="' + view.vlookat + '" fovtype="MFOV" fov="' + view.fov + '"');
+		trace(_print);
+	</action>
+	<include url="%HTMLPATH%//tours/distortedhotspot_editor.xml" /> -->
 	<include url="%HTMLPATH%//skin/PIPE-flatpano_setup-pr16.xml" />
+	<include url="%HTMLPATH%//skin/fs.xml" />
 	<include url="%HTMLPATH%//plugins/circle_hotspots.xml"/>
+	<display autofullscreen="false" />
+	<autorotate enabled="true" waittime="3" interruptionevents="userviewchange|keyboard"/>
+  	<events onautorotatestop="set(autorotate.enabled, false);"/>
+  	<events onnewscene="set(autorotate.enabled, true);"/>
 	<!-- TROCA DE CENA -->
     <style name="scn_btn" 
         type="text" vcenter="true" bg="false" css="text-align:center;color:#FFF"
@@ -122,12 +133,13 @@
 			</level>
 		</image>
 		<!--hotspots-->
-		<hotspot name="academia" ath="0.24" atv="0.05" style="hs_circle" tag="ACADEMIA" route="academia" />
-		<hotspot name="rooftop" ath="-0.15" atv="-0.13" style="hs_circle" tag="ROOFTOP" route="rooftop"/>
+		<hotspot name="academia" ath="-0.35" atv="0.042" style="hs_circle" tag="ACADEMIA" route="academia" />
+		<hotspot name="rooftop" ath="0.264" atv="-0.128" style="hs_circle" tag="ROOFTOP" route="rooftop"/>
 	</scene>
-
+<!-- *********** PANOS ********************** -->
 	<scene  name="hall" onstart="load_pano_view();" havevrimage="true">
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<include url="%HTMLPATH%//skin/goback.xml" />
+		<view hlookat="141.9938478460745" vlookat="0.33581454258237664" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 		<preview url="4_1-hall.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -146,6 +158,7 @@
 	</scene>
 
 	<scene name="salao" title="4.2-salao" onstart="load_pano_view();" havevrimage="true" thumburl="4_2-salao.tiles/thumb.jpg" lat="" lng="" heading="">
+		<include url="%HTMLPATH%//skin/goback.xml" />
 		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 		<preview url="4_2-salao.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
@@ -165,7 +178,8 @@
 	</scene>
 
 	<scene name="gourmet" title="4.3-gourmet" onstart="load_pano_view();" havevrimage="true" thumburl="4_3-gourmet.tiles/thumb.jpg" lat="" lng="" heading="">
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<include url="%HTMLPATH%//skin/goback.xml" />
+		<view hlookat="57.53196871577305" vlookat="0.5868024227178901" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 		<preview url="4_3-gourmet.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -184,7 +198,8 @@
 	</scene>
 
 	<scene name="office" title="4.4-office" onstart="load_pano_view();" havevrimage="true" thumburl="4_4-office.tiles/thumb.jpg" lat="" lng="" heading="">
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<include url="%HTMLPATH%//skin/goback.xml" />
+		<view hlookat="149.63356422699187" vlookat="-0.44020204444028616" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 		<preview url="4_4-office.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -203,7 +218,8 @@
 	</scene>
 
 	<scene name="reunioes" title="4.5-reunioes" onstart="load_pano_view();" havevrimage="true" thumburl="4_5-reunioes.tiles/thumb.jpg" lat="" lng="" heading="">
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<include url="%HTMLPATH%//skin/goback.xml" />
+		<view hlookat="184.5762154112795" vlookat="3.262852786621801" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 		<preview url="4_5-reunioes.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -222,6 +238,7 @@
 	</scene>
 
 	<scene name="brinquedoteca" title="4.6brinquedoteca" onstart="load_pano_view();" havevrimage="true" thumburl="4_6-brinquedoteca.tiles/thumb.jpg" lat="" lng="" heading="">
+		<include url="%HTMLPATH%//skin/goback.xml" />
 		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 		<preview url="4_6-brinquedoteca.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
@@ -241,7 +258,8 @@
 	</scene>
 
 	<scene name="academia" title="4.7-academia" onstart="load_pano_view();" havevrimage="true" thumburl="4_7-academia.tiles/thumb.jpg" lat="" lng="" heading="">
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<include url="%HTMLPATH%//skin/goback.xml" />
+		<view hlookat="101.59251095471484" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 		<preview url="4_7-academia.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -260,6 +278,7 @@
 	</scene>
 
 	<scene name="rooftop" title="4.8-rooftop" onstart="load_pano_view();" havevrimage="true" thumburl="4_8-rooftop.tiles/thumb.jpg" lat="" lng="" heading="">
+		<include url="%HTMLPATH%//skin/goback.xml" />
 		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 		<preview url="4_8-rooftop.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">

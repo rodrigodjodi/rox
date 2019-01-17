@@ -1,8 +1,13 @@
 <template>
-  <v-container fluid class="pa-0">
-    <v-layout row wrap>
+  <v-container fluid class="pa-0" fill-height>
+    <v-layout row wrap fill-height>
       <v-flex xs12 sm7 md9 lg10>
-        <Krpano :xml="xml" :scene="scene" @error="krpanoerror"/>
+        <Krpano
+          :xml="xml"
+          :scene="scene"
+          @error="krpanoerror"
+          :fillheight="$vuetify.breakpoint.smAndUp"
+        />
       </v-flex>
       <v-flex xs12 sm5 md3 lg2 class="apInfo pa-2">
         <v-select
