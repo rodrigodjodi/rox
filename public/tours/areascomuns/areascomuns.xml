@@ -11,9 +11,9 @@
 	<include url="%HTMLPATH%//skin/fs.xml" />
 	<include url="%HTMLPATH%//plugins/circle_hotspots.xml"/>
 	<display autofullscreen="false" />
-	<autorotate enabled="true" waittime="3" interruptionevents="userviewchange|keyboard"/>
+	<autorotate enabled="true" waittime="3" speed="5" interruptionevents="userviewchange|keyboard"/>
   	<events onautorotatestop="set(autorotate.enabled, false);"/>
-  	<events onnewscene="set(autorotate.enabled, true);"/>
+  	<events onnewscene="set(autorotate.waittime, 3);set(autorotate.enabled, true);"/>
 	<!-- TROCA DE CENA -->
     <style name="scn_btn" 
         type="text" vcenter="true" bg="false" css="text-align:center;color:#FFF"
@@ -43,12 +43,12 @@
 				layer[btn-cobertura].loadstyle('scn_btn');
 				scenechange()" scene="terreo"
         />
-        <layer name="btn-cobertura" html="COBERTURA" style="scn_btn" 
+        <layer name="btn-cobertura" html="ROOFTOP" style="scn_btn" 
             x="200"
             ondown="loadstyle('scn_btn_active');
 				layer[btn-subsolo].loadstyle('scn_btn');
 				layer[btn-terreo].loadstyle('scn_btn');
-				scenechange()" scene="cobertura"
+				scenechange()" scene="rooftop"
         />
     </layer>
 	<action name="load_pano_view">
@@ -83,12 +83,12 @@
 			</level>
 		</image>
 		<!--hotspots-->
-		<hotspot name="hall" ath="-0.18" atv="0.02" style="hs_circle" tag="HALL SOCIAL" route="hall" />
-		<hotspot name="salao" ath="-0.15" atv="-0.06" style="hs_circle" tag="SALÃO DE FESTAS" route="salao" />
-		<hotspot name="gourmet" ath="-0.01" atv="-0.09" style="hs_circle" tag="GOURMETERIA" route="gourmet" />
-		<hotspot name="office" ath="-0.19" atv="0.11" style="hs_circle" tag="OFFICE" route="office"  />
-		<hotspot name="reunioes" ath="-0.23" atv="0.09" style="hs_circle" tag="REUNIÕES" route="reunioes"/>
-		<hotspot name="brinquedoteca" ath="0.14" atv="-0.01" style="hs_circle" tag="BRINQUEDOTECA" route="brinquedoteca"/>
+		<hotspot name="terreo-hall" ath="-0.18" atv="0.02" style="hs_circle" tag="HALL SOCIAL" route="terreo/hall" />
+		<hotspot name="terreo-salao" ath="-0.15" atv="-0.06" style="hs_circle" tag="SALÃO DE FESTAS" route="terreo/salao" />
+		<hotspot name="terreo-gourmet" ath="-0.01" atv="-0.09" style="hs_circle" tag="GOURMETERIA" route="terreo/gourmet" />
+		<hotspot name="terreo-office" ath="-0.19" atv="0.11" style="hs_circle" tag="OFFICE" route="terreo/office"  />
+		<hotspot name="terreo-reunioes" ath="-0.23" atv="0.09" style="hs_circle" tag="REUNIÕES" route="terreo/reunioes"/>
+		<hotspot name="terreo-brinquedoteca" ath="0.14" atv="-0.01" style="hs_circle" tag="BRINQUEDOTECA" route="terreo/brinquedoteca"/>
 	</scene>
 
 	<scene  name="subsolo"  onstart="load_plan_view(); flatpano_startup();">
@@ -112,7 +112,7 @@
 		</image>
 	</scene>
 
-	<scene  name="cobertura" onstart="load_plan_view(); flatpano_startup();">
+	<scene  name="rooftop" onstart="load_plan_view(); flatpano_startup();">
 		<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
 		<control mousetype="drag" touchtype="drag" zoomtocursor="true" 
 		zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />
@@ -133,11 +133,11 @@
 			</level>
 		</image>
 		<!--hotspots-->
-		<hotspot name="academia" ath="-0.35" atv="0.042" style="hs_circle" tag="ACADEMIA" route="academia" />
-		<hotspot name="rooftop" ath="0.264" atv="-0.128" style="hs_circle" tag="ROOFTOP" route="rooftop"/>
+		<hotspot name="rooftop-academia" ath="-0.35" atv="0.042" style="hs_circle" tag="ACADEMIA" route="rooftop/academia" />
+		<hotspot name="rooftop-terraco" ath="0.264" atv="-0.128" style="hs_circle" tag="ROOFTOP" route="rooftop/terraco"/>
 	</scene>
 <!-- *********** PANOS ********************** -->
-	<scene  name="hall" onstart="load_pano_view();" havevrimage="true">
+	<scene  name="terreo-hall" onstart="load_pano_view();" havevrimage="true">
 		<include url="%HTMLPATH%//skin/goback.xml" />
 		<view hlookat="141.9938478460745" vlookat="0.33581454258237664" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 		<preview url="4_1-hall.tiles/preview.jpg" />
@@ -157,7 +157,7 @@
 		</image>
 	</scene>
 
-	<scene name="salao" title="4.2-salao" onstart="load_pano_view();" havevrimage="true" thumburl="4_2-salao.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="terreo-salao" title="4.2-salao" onstart="load_pano_view();" havevrimage="true" thumburl="4_2-salao.tiles/thumb.jpg" lat="" lng="" heading="">
 		<include url="%HTMLPATH%//skin/goback.xml" />
 		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 		<preview url="4_2-salao.tiles/preview.jpg" />
@@ -177,7 +177,7 @@
 		</image>
 	</scene>
 
-	<scene name="gourmet" title="4.3-gourmet" onstart="load_pano_view();" havevrimage="true" thumburl="4_3-gourmet.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="terreo-gourmet" title="4.3-gourmet" onstart="load_pano_view();" havevrimage="true" thumburl="4_3-gourmet.tiles/thumb.jpg" lat="" lng="" heading="">
 		<include url="%HTMLPATH%//skin/goback.xml" />
 		<view hlookat="57.53196871577305" vlookat="0.5868024227178901" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 		<preview url="4_3-gourmet.tiles/preview.jpg" />
@@ -197,7 +197,7 @@
 		</image>
 	</scene>
 
-	<scene name="office" title="4.4-office" onstart="load_pano_view();" havevrimage="true" thumburl="4_4-office.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="terreo-office" title="4.4-office" onstart="load_pano_view();" havevrimage="true" thumburl="4_4-office.tiles/thumb.jpg" lat="" lng="" heading="">
 		<include url="%HTMLPATH%//skin/goback.xml" />
 		<view hlookat="149.63356422699187" vlookat="-0.44020204444028616" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 		<preview url="4_4-office.tiles/preview.jpg" />
@@ -217,7 +217,7 @@
 		</image>
 	</scene>
 
-	<scene name="reunioes" title="4.5-reunioes" onstart="load_pano_view();" havevrimage="true" thumburl="4_5-reunioes.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="terreo-reunioes" title="4.5-reunioes" onstart="load_pano_view();" havevrimage="true" thumburl="4_5-reunioes.tiles/thumb.jpg" lat="" lng="" heading="">
 		<include url="%HTMLPATH%//skin/goback.xml" />
 		<view hlookat="184.5762154112795" vlookat="3.262852786621801" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 		<preview url="4_5-reunioes.tiles/preview.jpg" />
@@ -237,7 +237,7 @@
 		</image>
 	</scene>
 
-	<scene name="brinquedoteca" title="4.6brinquedoteca" onstart="load_pano_view();" havevrimage="true" thumburl="4_6-brinquedoteca.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="terreo-brinquedoteca" title="4.6brinquedoteca" onstart="load_pano_view();" havevrimage="true" thumburl="4_6-brinquedoteca.tiles/thumb.jpg" lat="" lng="" heading="">
 		<include url="%HTMLPATH%//skin/goback.xml" />
 		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 		<preview url="4_6-brinquedoteca.tiles/preview.jpg" />
@@ -257,7 +257,7 @@
 		</image>
 	</scene>
 
-	<scene name="academia" title="4.7-academia" onstart="load_pano_view();" havevrimage="true" thumburl="4_7-academia.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="rooftop-academia" title="4.7-academia" onstart="load_pano_view();" havevrimage="true" thumburl="4_7-academia.tiles/thumb.jpg" lat="" lng="" heading="">
 		<include url="%HTMLPATH%//skin/goback.xml" />
 		<view hlookat="101.59251095471484" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 		<preview url="4_7-academia.tiles/preview.jpg" />
@@ -277,7 +277,7 @@
 		</image>
 	</scene>
 
-	<scene name="rooftop" title="4.8-rooftop" onstart="load_pano_view();" havevrimage="true" thumburl="4_8-rooftop.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="rooftop-terraco" title="4.8-rooftop" onstart="load_pano_view();" havevrimage="true" thumburl="4_8-rooftop.tiles/thumb.jpg" lat="" lng="" heading="">
 		<include url="%HTMLPATH%//skin/goback.xml" />
 		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 		<preview url="4_8-rooftop.tiles/preview.jpg" />

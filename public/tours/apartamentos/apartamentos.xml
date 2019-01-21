@@ -5,13 +5,13 @@
 		showlog();
 		set(_print, calc:'hlookat="' + view.hlookat + '" vlookat="' + view.vlookat + '" fovtype="MFOV" fov="' + view.fov + '"');
 		trace(_print);
-	</action>
-	<include url="%HTMLPATH%//tours/distortedhotspot_editor.xml" /> -->
+	</action>-->
+	<include url="%HTMLPATH%//tours/distortedhotspot_editor.xml" /> 
 	<include url="%HTMLPATH%//skin/PIPE-flatpano_setup-pr16.xml" />
 	<include url="%HTMLPATH%//skin/fs.xml" /> 
 	<include url="%HTMLPATH%//plugins/circle_hotspots.xml"/>
 	<display autofullscreen="false" />
-	<autorotate enabled="true" waittime="3" interruptionevents="userviewchange|keyboard"/>
+	<autorotate enabled="true" speed="5" waittime="3" interruptionevents="userviewchange|keyboard"/>
   	<events onautorotatestop="set(autorotate.enabled, false);"/>
   	<events onnewscene="set(autorotate.enabled, true);"/>
 	<style name="scn_btn" 
@@ -139,13 +139,13 @@
 				<cylinder url="final5.tiles/l1/%v/l1_%v_%h.jpg" />
 			</level>
 		</image>
-		<hotspot name="final5-estar" ath="-0.15" atv="0.1" style="hs_circle" tag="ESTAR" route="final5/estar" />
-		<hotspot name="final5-suite" ath="0.2" atv="0.03" style="hs_circle" tag="SUÍTE" route="final5/suite" />
-		<hotspot name="final5-quarto1" ath="0" atv="0.024" style="hs_circle" tag="QUARTO 1" route="final5/quarto1" />
-		<hotspot name="final5-quarto2" ath="0.173" atv="0.144" style="hs_circle" tag="QUARTO 2" route="final5/quarto2" />
-		<hotspot name="final5-cozinha" ath="-0.275" atv="0.087" style="hs_circle" tag="COZINHA" route="final5/cozinha" />
-		<hotspot name="final5-issuite" ath="0.142" atv="-0.035" style="hs_circle" tag="IS SUÍTE" route="final5/issuite" />
-		<hotspot name="final5-varanda" ath="-0.15" atv="-0.146" style="hs_circle" tag="VARANDA" route="final5/varanda" />
+		<hotspot name="final5-estar"	rotate="3"		ath="-0.15"	atv="0.1"	style="hs_circle" tag="ESTAR" 	route="final5/estar" />
+		<hotspot name="final5-suite" 	rotate="10"		ath="0.2"	atv="0.03"	style="hs_circle" tag="SUÍTE" 	route="final5/suite" />
+		<hotspot name="final5-quarto1" 	rotate="0"		ath="0"		atv="0.03"	style="hs_circle" tag="QUARTO 1" route="final5/quarto1" />
+		<hotspot name="final5-quarto2" 	rotate="90"		ath="0.173"	atv="0.144"	style="hs_circle" tag="QUARTO 2" route="final5/quarto2" />
+		<hotspot name="final5-cozinha" 	rotate="300"		ath="-0.27"	atv="0.087"	style="hs_circle" tag="COZINHA" route="final5/cozinha" />
+		<hotspot name="final5-issuite" 	rotate="350"		ath="0.142" atv="-0.03"	style="hs_circle" tag="BANHEIRO SUÍTE" route="final5/issuite" />
+		<hotspot name="final5-varanda" 	rotate="299"	ath="-0.15" atv="-0.14"	style="hs_circle" tag="VARANDA" route="final5/varanda" />
 	</scene>
 
 	<scene name="final5E" onstart="flatpano_startup()">
@@ -218,12 +218,12 @@
 				<cylinder url="final6.tiles/l1/%v/l1_%v_%h.jpg" />
 			</level>
 		</image>
-		<hotspot name="final6-estar" ath="-0.069" atv="0.0684" style="hs_circle" tag="ESTAR" route="final6/estar" />
-		<hotspot name="final6-suite" ath="0.217" atv="0.027" style="hs_circle" tag="SUÍTE" route="final6/suite" />
-		<hotspot name="final6-quarto" ath="0.063" atv="-0.015" style="hs_circle" tag="QUARTO" route="final6/quarto" />
-		<hotspot name="final6-cozinha" ath="-0.183" atv="0.083" style="hs_circle" tag="COZINHA" route="final6/cozinha" />
-		<hotspot name="final6-issuite" ath="0.257" atv="0.108" style="hs_circle" tag="IS SUÍTE" route="final6/issuite" />
-		<hotspot name="final6-varanda" ath="-0.081" atv="-0.135" style="hs_circle" tag="VARANDA" route="final6/varanda" />
+		<hotspot name="final6-estar" ath="-0.069" atv="0.0684" rotate="0" style="hs_circle" tag="ESTAR" route="final6/estar" />
+		<hotspot name="final6-suite" ath="0.217" atv="0.027" rotate="24" style="hs_circle" tag="SUÍTE" route="final6/suite" />
+		<hotspot name="final6-quarto" ath="0.063" atv="-0.015" rotate="8" style="hs_circle" tag="QUARTO" route="final6/quarto" />
+		<hotspot name="final6-cozinha" ath="-0.183" atv="0.083" rotate="327" style="hs_circle" tag="COZINHA" route="final6/cozinha" />
+		<hotspot name="final6-issuite" ath="0.245" atv="0.139" rotate="60" style="hs_circle" tag="IS SUÍTE" route="final6/issuite" />
+		<hotspot name="final6-varanda" ath="-0.081" atv="-0.135" rotate="300" style="hs_circle" tag="VARANDA" route="final6/varanda" />
 	</scene>
 	
 	<scene name="final6E" onstart="flatpano_startup()">
@@ -424,6 +424,11 @@
 		<image if="webvr.isenabled">
 			<cube url="3_1-estar.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="final5-varanda" ath="1.0087096840204026" atv="6.5899779805549" scale="0.5" rx="0" ry="0" rz="0" style="hs_circle" tag="VARANDA" route="varanda" />
+		<hotspot name="final5-cozinha" ath="-86.98002493401725" atv="14.36126737651365" scale="0.5" rx="0" ry="0" rz="0" style="hs_circle" tag="COZINHA" route="cozinha" />
+		<hotspot name="final5-suite" distorted="true" ath="86.28053777207333" atv="-1" scale="0.5" rx="0" ry="0" rz="-45" style="hs_circle" tag="SUÍTE" route="suite" />
+		<hotspot name="final5-quarto1" distorted="true" ath="86.28053777207333" atv="6" scale="0.5" rx="0" ry="0" rz="-90" style="hs_circle" tag="QUARTO 1" route="quarto1" />
+		<hotspot name="final5-quarto2" distorted="true" ath="92" atv="2.5" scale="0.5" rx="0" ry="0" rz="0" style="hs_circle" tag="QUARTO 2" route="quarto2" />
 	</scene>
 
 	<scene name="final5-suite">
@@ -444,6 +449,8 @@
 		<image if="webvr.isenabled">
 			<cube url="3_2-suite.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="final5-issuite" distorted="true" ath="-171" atv="11" scale="0.5" rx="0" ry="0" rz="90" style="hs_circle" tag="BANHEIRO SUÍTE" route="issuite" />
+		<hotspot name="final5-estar" distorted="true" ath="145" atv="11" scale="0.5" rx="0" ry="0" rz="27" style="hs_circle" tag="ESTAR" route="estar" />
 	</scene>
 
 	<scene name="final5-quarto1">
@@ -464,6 +471,8 @@
 		<image if="webvr.isenabled">
 			<cube url="3_3-quarto1.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="final5-varanda" distorted="true" ath="-11" atv="15" scale="0.5" rx="0" ry="0" rz="270" style="hs_circle" tag="VARANDA" route="varanda" />
+		<hotspot name="final5-estar" distorted="true" ath="143" atv="15" scale="0.5" rx="0" ry="0" rz="115" style="hs_circle" tag="ESTAR" route="estar" />
 	</scene>
 
 	<scene name="final5-quarto2">
@@ -478,6 +487,7 @@
 		<image if="webvr.isenabled">
 			<cube url="3_4-quarto2.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="final5-estar" distorted="true" ath="-146" atv="15" scale="0.5" rx="0" ry="0" rz="-32" style="hs_circle" tag="ESTAR" route="estar" />
 	</scene>
 
 	<scene name="final5-cozinha">
@@ -498,6 +508,8 @@
 		<image if="webvr.isenabled">
 			<cube url="3_5-cozinha.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="final5-estar" distorted="true" ath="105" atv="10" scale="0.5" rx="0" ry="0" rz="0" style="hs_circle" tag="ESTAR" route="estar" />
+		<hotspot name="final5-varanda" distorted="true" ath="2" atv="6" scale="0.5" rx="0" ry="0" rz="0" style="hs_circle" tag="VARANDA" route="varanda" />
 	</scene>
 
 	<scene name="final5-issuite">
@@ -518,6 +530,8 @@
 		<image if="webvr.isenabled">
 			<cube url="3_6-issuite.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="final5-estar" distorted="true" ath="-166" atv="15" scale="0.5" rx="0" ry="0" rz="0" style="hs_circle" tag="ESTAR" route="estar" />
+		<hotspot name="final5-suite" distorted="true" ath="175" atv="15" scale="0.5" rx="0" ry="0" rz="-90" style="hs_circle" tag="SUÍTE" route="suite" />
 	</scene>
 
 	<scene name="final5-varanda">
@@ -538,6 +552,8 @@
 		<image if="webvr.isenabled">
 			<cube url="3_8-sacada.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="final5-estar" distorted="true" ath="180" atv="15" scale="0.5" rx="0" ry="0" rz="0" style="hs_circle" tag="ESTAR" route="estar" />
+		<hotspot name="final5-cozinha" distorted="true" ath="-105" atv="10" scale="0.5" rx="0" ry="0" rz="270" style="hs_circle" tag="COZINHA" route="cozinha" />
 	</scene>
 	<!-- FIM CENAS APARTAMENTO FINAL 5 -->
 
@@ -561,6 +577,10 @@
 		<image if="webvr.isenabled">
 			<cube url="2_1-estar.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="final6-varanda" distorted="true" ath="1" atv="7" scale="0.5" rx="0" ry="0" rz="0" style="hs_circle" tag="VARANDA" route="varanda" />
+		<hotspot name="final6-cozinha" distorted="true" ath="-86" atv="14" scale="0.5" rx="0" ry="0" rz="0" style="hs_circle" tag="COZINHA" route="cozinha" />
+		<hotspot name="final6-suite" distorted="true" ath="95" atv="6" scale="0.5" rx="0" ry="0" rz="0" style="hs_circle" tag="SUÍTE" route="suite" />
+		<hotspot name="final6-quarto" distorted="true" ath="85" atv="6" scale="0.5" rx="0" ry="0" rz="-90" style="hs_circle" tag="QUARTO" route="quarto" />
 	</scene>
 
 	<scene name="final6-suite">
@@ -581,6 +601,8 @@
 		<image if="webvr.isenabled">
 			<cube url="2_2-suite.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="final6-estar" distorted="true" ath="-111" atv="15" scale="0.5" rx="0" ry="0" rz="15" style="hs_circle" tag="ESTAR" route="estar" />
+		<hotspot name="final6-issuite" distorted="true" ath="145" atv="15" scale="0.5" rx="0" ry="0" rz="0" style="hs_circle" tag="BANHEIRO SUÍTE" route="issuite" />
 	</scene>
 
 	<scene name="final6-quarto">
@@ -601,6 +623,8 @@
 		<image if="webvr.isenabled">
 			<cube url="2_3-quarto.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="final6-estar" distorted="true" ath="-168" atv="15" scale="0.5" rx="0" ry="0" rz="90" style="hs_circle" tag="ESTAR" route="estar" />
+		<hotspot name="final6-varanda" distorted="true" ath="-20" atv="15" scale="0.5" rx="0" ry="0" rz="270" style="hs_circle" tag="VARANDA" route="varanda" />
 	</scene>
 
 	<scene name="final6-cozinha">
@@ -621,6 +645,8 @@
 		<image if="webvr.isenabled">
 			<cube url="2_4-cozinha.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="final6-estar" distorted="true" ath="100" atv="10" scale="0.5" rx="0" ry="0" rz="0" style="hs_circle" tag="ESTAR" route="estar" />
+		<hotspot name="final6-varanda" distorted="true" ath="2" atv="6" scale="0.5" rx="0" ry="0" rz="0" style="hs_circle" tag="VARANDA" route="varanda" />
 	</scene>
 
 	<scene name="final6-issuite">
@@ -641,6 +667,8 @@
 		<image if="webvr.isenabled">
 			<cube url="2_5-issuite.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="final6-estar" distorted="true" ath="-9" atv="15" scale="0.5" rx="0" ry="0" rz="-90" style="hs_circle" tag="ESTAR" route="estar" />
+		<hotspot name="final6-suite" distorted="true" ath="4" atv="15" scale="0.5" rx="0" ry="0" rz="0" style="hs_circle" tag="SUÍTE" route="suite" />
 	</scene>
 
 	<scene name="final6-varanda">
@@ -661,6 +689,8 @@
 		<image if="webvr.isenabled">
 			<cube url="2_7-sacada.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="final6-estar" distorted="true" ath="180" atv="15" scale="0.5" rx="0" ry="0" rz="0" style="hs_circle" tag="ESTAR" route="estar" />
+		<hotspot name="final6-cozinha" distorted="true" ath="-105" atv="10" scale="0.5" rx="0" ry="0" rz="270" style="hs_circle" tag="COZINHA" route="cozinha" />
 	</scene>
 	<!-- FIM CENAS APARTAMENTO FINAL 6 -->
 </krpano>

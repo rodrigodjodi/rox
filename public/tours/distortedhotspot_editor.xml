@@ -199,10 +199,10 @@
 		  );
 	</action>
 	
-	
+
 	<action name="Print">
-		showlog();
 		set(_print, calc:'ath="' + hotspot[get(_activehtsp)].ath +'" atv="' + hotspot[get(_activehtsp)].atv +'" scale="' + hotspot[get(_activehtsp)].scale +'" rx="' + hotspot[get(_activehtsp)].rx +'" ry="' + hotspot[get(_activehtsp)].ry +'" rz="' + hotspot[get(_activehtsp)].rz +'"' );
-		trace(_print);
+		set(jscallString, calc('navigator.clipboard.writeText(`' + _print + '`)'));
+		jscall(calc(jscallString));
 	</action>
 </krpano>

@@ -53,12 +53,12 @@
 					,
 					set(enabled,false);
                     select_hs();
-					lookto(get(hotspot[get(name)].ath),get(hotspot[get(name)].atv),get(view.fovmin),smooth(100,-100,120),true,false);
+					lookto(get(hotspot[get(name)].ath),get(hotspot[get(name)].atv),get(view.fov),smooth(100,-100,120),true,false);
                     WAIT();                 
                     onclick2());"
 		onclick.desktop="
 					set(enabled,false);
-					lookto(get(hotspot[get(name)].ath),get(hotspot[get(name)].atv),get(view.fovmin),smooth(100,-100,120),true,false);
+					lookto(get(hotspot[get(name)].ath),get(hotspot[get(name)].atv),get(view.fov));
                     WAIT();
                     onclick2();"/>
     
@@ -71,7 +71,8 @@
         alpha="0"
         flying="0.03"
         zorder="999999"
-        enabled="false"/>       
+        enabled="false"
+        align="center"/>       
     
     <!-- Circle Hotspot Tag (Textfield) Style, shows the name of the next scene when hotspot is activated -->
     

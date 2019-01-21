@@ -52,6 +52,10 @@ export default {
     ...mapState(["innerHeight"]),
     panoheight() {
       return this.innerHeight < 480 ? this.innerHeight : this.innerHeight - 48;
+    },
+    blend() {
+      return "OPENBLEND(1.0, 0.0, 0.2, 0.0, linear)";
+      //return 'BLEND(0.5)'
     }
   },
   methods: {
@@ -85,12 +89,13 @@ export default {
     },
     loadScene() {
       let scene = this.scene;
+
       if (!this.krpanoInstance) return;
       if (scene) {
         let str = `
                 if( scene[${scene}] !== null,
                   
-                  loadscene(${scene},null,${this.flags},BLEND(0.5)),
+                  loadscene(${scene},null,${this.flags},${this.blend}),
 
                   error("Cena ${scene} não encontrada")
                 
@@ -99,7 +104,7 @@ export default {
         this.$emit("sceneChanged", scene);
       } else {
         this.krpanoInstance.call(
-          `loadscene(get(scene[0].name),null,${this.flags},BLEND(0.5))`
+          `loadscene(get(scene[0].name),null,${this.flags},${this.blend})`
         );
       }
     },

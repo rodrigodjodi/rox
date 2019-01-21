@@ -21,18 +21,25 @@ export default {
   },
   data() {
     return {
+      baseUrl: process.env.BASE_URL,
       plantas: [
         "galeria/plantas/rox_AP1_large.png",
         "galeria/plantas/rox_AP2_large.png",
         "galeria/plantas/rox_AP3_large.png"
       ],
-      index: null,
-      xml: "../tours/areascomuns/areascomuns.xml"
+      index: null
     };
   },
   computed: {
+    xml() {
+      return `${this.baseUrl}tours/areascomuns/areascomuns.xml`;
+    },
     scene() {
-      return this.$route.params.cena;
+      if (this.$route.params.cena) {
+        return `${this.$route.params.pavimento}-${this.$route.params.cena}`;
+      } else {
+        return this.$route.params.pavimento;
+      }
     }
   },
   methods: {

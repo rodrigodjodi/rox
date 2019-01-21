@@ -4,7 +4,12 @@
         onclick="vue_go_back()"
         width="64" height="64" x="8" y="8"
     />
-    <action name="vue_go_back" scope="local" type="Javascript">
-        vm.$router.go(-1);
-    </action>
+    <action name="vue_go_back" scope="local" type="Javascript"><![CDATA[
+        var upperPath = vm.$route.path.split("/");
+         if (upperPath.length > 0) {
+            upperPath.splice(upperPath.length-1)
+            const newPath = upperPath.join("/")
+            vm.$router.push(newPath)
+         }
+]]></action>
 </krpano>
