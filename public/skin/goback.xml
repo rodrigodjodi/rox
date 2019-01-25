@@ -2,7 +2,11 @@
     <layer name="btn_back" url="%HTMLPATH%//skin/baseline_undo_black_48dp.png" keep="false" align="leftbottom"
         alpha="0.67"
         onclick="vue_go_back()"
-        width="64" height="64" x="8" y="8"
+        scale="0.8"
+        width="64" height="64" x="-64" y="8"
+        onover="tween(alpha, 0.8, 0.2);tween(scale, 1, 0.2)"
+        onout="tween(alpha, 0.67, 0.2);tween(scale, 0.8, 0.2)"
+        onloaded="tween(x,8,0.5,easeOutQuart)"
     />
     <action name="vue_go_back" scope="local" type="Javascript"><![CDATA[
         var upperPath = vm.$route.path.split("/");

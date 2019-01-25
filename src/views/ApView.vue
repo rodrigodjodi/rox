@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="pa-0" fill-height>
     <v-layout row wrap fill-height>
-      <v-flex xs12 sm7 md9 lg10>
+      <v-flex xs12 sm7 md9 lg9>
         <Krpano
           :xml="xml"
           :scene="scene"
@@ -9,7 +9,7 @@
           :fillheight="$vuetify.breakpoint.smAndUp"
         />
       </v-flex>
-      <v-flex xs12 sm5 md3 lg2 class="apInfo pa-2">
+      <v-flex xs12 sm5 md3 lg3 class="apInfo pa-2">
         <v-select
           dark
           class="apSelect"
@@ -20,8 +20,8 @@
           @change="changeSelect"
           prepend-icon="chevron_left"
           append-outer-icon="chevron_right"
-          @click:prepend=" changeAp('prev')"
-          @click:append-outer=" changeAp('next')"
+          @click:prepend="changeAp('prev')"
+          @click:append-outer="changeAp('next')"
         ></v-select>
         <v-list style="background: #5e354c;">
           <v-list-tile color="white">
@@ -43,7 +43,7 @@
             <v-list-tile-content color="white">{{ ap.vagas }}</v-list-tile-content>
           </v-list-tile>
         </v-list>
-        <v-img :aspect-ratio="16/9" :src="`${baseUrl}tours/apartamentos/chave-${ap.id}.png`"></v-img>
+        <v-img :aspect-ratio="16/9" :src="sideImg"></v-img>
       </v-flex>
     </v-layout>
   </v-container>
@@ -74,6 +74,15 @@ export default {
         return `${this.$route.params.ap}-${this.$route.params.cena}`;
       } else {
         return this.ap.id;
+      }
+    },
+    sideImg() {
+      if (this.$route.params.cena) {
+        return `${this.baseUrl}tours/apartamentos/${
+          this.ap.id
+        }.tiles/preview.jpg`;
+      } else {
+        return `${this.baseUrl}tours/apartamentos/chave-${this.ap.id}.png`;
       }
     }
   },

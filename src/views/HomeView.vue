@@ -1,11 +1,15 @@
 <template>
-  <div style="height: 100%;">
-    <ovr xml="../ovr/ROX_OVR_00_out.xml" @hsClick="triggerNavOption"></ovr>
-    <v-snackbar v-model="snackbar" top :timeout="4000">
-      <span @click="snackbar=false">{{ text }}</span>
-      <v-btn color="pink" flat @click="$router.push(route)">Ver</v-btn>
-    </v-snackbar>
-  </div>
+  <v-container fluid class="pa-0">
+    <v-layout row wrap>
+      <v-flex xs12>
+        <ovr xml="../ovr/ROX_OVR_00_out.xml" @hsClick="triggerNavOption" :fillheight="true"></ovr>
+        <v-snackbar style="z-index:3000;" v-model="snackbar" top :timeout="4000">
+          <span @click="snackbar=false">{{ text }}</span>
+          <v-btn color="pink" flat @click="$router.push(route)">Ver</v-btn>
+        </v-snackbar>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>

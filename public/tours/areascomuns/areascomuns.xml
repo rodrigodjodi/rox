@@ -1,4 +1,4 @@
-﻿<krpano bgcolor="0xFFFFFF" basedir="%SWFPATH%">
+﻿<krpano bgcolor="0xFFFFFF" basedir="%SWFPATH%" showerrors="false">
 	<!-- 
 	<events keep="true" name="trace_on_idle" onidle="Print()" />
 	<action name="Print">
@@ -6,7 +6,7 @@
 		set(_print, calc:'hlookat="' + view.hlookat + '" vlookat="' + view.vlookat + '" fovtype="MFOV" fov="' + view.fov + '"');
 		trace(_print);
 	</action>
-	<include url="%HTMLPATH%//tours/distortedhotspot_editor.xml" /> -->
+	<include url="%HTMLPATH%//tours/distortedhotspot_editor.xml" />-->
 	<include url="%HTMLPATH%//skin/PIPE-flatpano_setup-pr16.xml" />
 	<include url="%HTMLPATH%//skin/fs.xml" />
 	<include url="%HTMLPATH%//plugins/circle_hotspots.xml"/>
@@ -30,25 +30,16 @@
         type="container" align="top" width="300" height="40"  x="0" y="5"
         onloaded="" zorder="3" keep="true" visible="false"
     >
-        <layer name="btn-subsolo"  html="SUBSOLO" style="scn_btn" 
-            ondown="loadstyle('scn_btn_active');
-				layer[btn-terreo].loadstyle('scn_btn');
-				layer[btn-cobertura].loadstyle('scn_btn');
-				scenechange()" scene="subsolo"
+        <layer name="btn-subsolo"  html="SUBSOLO" 
+            ondown="scenechange()" scene="subsolo"
         />
-        <layer name="btn-terreo" html="TÉRREO" style="scn_btn_active" 
+        <layer name="btn-terreo" html="TÉRREO" 
             x="100"
-            ondown="loadstyle('scn_btn_active');
-				layer[btn-subsolo].loadstyle('scn_btn');
-				layer[btn-cobertura].loadstyle('scn_btn');
-				scenechange()" scene="terreo"
+            ondown="scenechange()" scene="terreo"
         />
-        <layer name="btn-cobertura" html="ROOFTOP" style="scn_btn" 
+        <layer name="btn-rooftop" html="ROOFTOP" 
             x="200"
-            ondown="loadstyle('scn_btn_active');
-				layer[btn-subsolo].loadstyle('scn_btn');
-				layer[btn-terreo].loadstyle('scn_btn');
-				scenechange()" scene="rooftop"
+            ondown="scenechange()" scene="rooftop"
         />
     </layer>
 	<action name="load_pano_view">
@@ -56,6 +47,10 @@
 	</action>
 	<action name="load_plan_view">
 		set(layer['skin_scene_change'].visible, true);
+		layer[btn-rooftop].loadstyle(scn_btn);
+		layer[btn-terreo].loadstyle(scn_btn);
+		layer[btn-subsolo].loadstyle(scn_btn);
+		layer[calc('btn-'+xml.scene)].loadstyle(scn_btn_active);
 	</action>
     <action name="scenechange" scope="local" type="Javascript">
         vm.$router.push(caller.scene)
@@ -63,7 +58,7 @@
 
 <!-- FIM TROCA DE CENA -->
 <!-- SCENES -->
-	<scene  name="terreo" onstart="load_plan_view(); flatpano_startup();">
+	<scene  name="terreo" onstart="load_plan_view();layer[btn-terreo].loadstyle(scn_btn_active);flatpano_startup();">
 		<preview url="terreo.tiles/preview.jpg" />
 		<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
 		<control mousetype="drag" touchtype="drag" zoomtocursor="true" 
@@ -83,15 +78,18 @@
 			</level>
 		</image>
 		<!--hotspots-->
-		<hotspot name="terreo-hall" ath="-0.18" atv="0.02" style="hs_circle" tag="HALL SOCIAL" route="terreo/hall" />
-		<hotspot name="terreo-salao" ath="-0.15" atv="-0.06" style="hs_circle" tag="SALÃO DE FESTAS" route="terreo/salao" />
-		<hotspot name="terreo-gourmet" ath="-0.01" atv="-0.09" style="hs_circle" tag="GOURMETERIA" route="terreo/gourmet" />
-		<hotspot name="terreo-office" ath="-0.19" atv="0.11" style="hs_circle" tag="OFFICE" route="terreo/office"  />
-		<hotspot name="terreo-reunioes" ath="-0.23" atv="0.09" style="hs_circle" tag="REUNIÕES" route="terreo/reunioes"/>
-		<hotspot name="terreo-brinquedoteca" ath="0.14" atv="-0.01" style="hs_circle" tag="BRINQUEDOTECA" route="terreo/brinquedoteca"/>
+		<hotspot name="terreo-hall" rotate="141" ath="-0.18" atv="0.02" style="hs_circle" tag="HALL SOCIAL" route="terreo/hall" />
+		<hotspot name="terreo-salao" rotate="330" ath="-0.15" atv="-0.06" style="hs_circle" tag="SALÃO DE FESTAS" route="terreo/salao" />
+		<hotspot name="terreo-gourmet" rotate="57" ath="-0.01" atv="-0.09" style="hs_circle" tag="GOURMETERIA" route="terreo/gourmet" />
+		<hotspot name="terreo-office" rotate="149" ath="-0.19" atv="0.11" style="hs_circle" tag="OFFICE" route="terreo/office"  />
+		<hotspot name="terreo-reunioes" rotate="184" ath="-0.23" atv="0.09" style="hs_circle" tag="REUNIÕES" route="terreo/reunioes"/>
+		<hotspot name="terreo-brinquedoteca" rotate="0" ath="0.14" atv="-0.01" style="hs_circle" tag="BRINQUEDOTECA" route="terreo/brinquedoteca"/>
+		<hotspot name="terreo-rua" rotate="62" ath="-0.5" atv="0.21" style="hs_circle" tag="FACHADA DA RUA" route="terreo/rua"/>
+		<hotspot name="terreo-salao-ext" rotate="135" ath="-0.35" atv="-0.20" style="hs_circle" tag="SALÃO - EXTERNO" route="terreo/salao-ext"/>
+		<hotspot name="terreo-gourmet-ext" rotate="68" ath="-0.03" atv="-0.160" style="hs_circle" tag="GOURMETERIA - EXTERNO" route="terreo/gourmet-ext"/>
 	</scene>
 
-	<scene  name="subsolo"  onstart="load_plan_view(); flatpano_startup();">
+	<scene  name="subsolo"  onstart="load_plan_view();layer[btn-subsolo].loadstyle(scn_btn_active);flatpano_startup();">
 		<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
 		<control mousetype="drag" touchtype="drag" zoomtocursor="true" 
 		zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />
@@ -112,7 +110,7 @@
 		</image>
 	</scene>
 
-	<scene  name="rooftop" onstart="load_plan_view(); flatpano_startup();">
+	<scene  name="rooftop" onstart="load_plan_view();flatpano_startup();">
 		<view fovtype="HFOV" fov="2.0" fovmax="2.0" maxpixelzoom="1.0" limitview="lookat" />
 		<control mousetype="drag" touchtype="drag" zoomtocursor="true" 
 		zoomoutcursor="true" bouncinglimits="true" keycodesin="16" keycodesout="17" />
@@ -133,13 +131,64 @@
 			</level>
 		</image>
 		<!--hotspots-->
-		<hotspot name="rooftop-academia" ath="-0.35" atv="0.042" style="hs_circle" tag="ACADEMIA" route="rooftop/academia" />
-		<hotspot name="rooftop-terraco" ath="0.264" atv="-0.128" style="hs_circle" tag="ROOFTOP" route="rooftop/terraco"/>
+		<hotspot name="rooftop-academia" rotate="101" ath="-0.35" atv="0.042" style="hs_circle" tag="ACADEMIA" route="rooftop/academia" />
+		<hotspot name="rooftop-lareira" rotate="90" ath="0.264" atv="-0.128" style="hs_circle" tag="LAREIRA" route="rooftop/lareira"/>
+		<hotspot name="rooftop-espelhodagua" rotate="10" ath="0.264" atv="0.11" style="hs_circle" tag="ESPELHO D'ÁGUA" route="rooftop/espelhodagua"/>
 	</scene>
 <!-- *********** PANOS ********************** -->
+	<scene name="terreo-rua" onstart="load_pano_view();" havevrimage="true" >
+		<include url="%HTMLPATH%//skin/goback.xml" />
+		<view hlookat="62.0" vlookat="-6.0" fovtype="MFOV" fov="120" maxpixelzoom="1" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-80" vlookatmax="60" />
+		<preview url="1_4-rua.tiles/preview.jpg" />
+		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
+			<level tiledimagewidth="1024" tiledimageheight="1024">
+				<cube url="1_4-rua.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+			</level>
+		</image>
+		<image if="webvr.isenabled">
+			<cube url="1_4-rua.tiles/vr/pano_%s.jpg" />
+		</image>
+		<hotspot name="terreo-hall" distorted="true" ath="44.32" atv="1.37" scale="0.5" rx="0" ry="0" rz="0" style="hs_circle" tag="HALL" route="hall" />
+	</scene>
+
+	<scene name="terreo-salao-ext" onstart="load_pano_view();" havevrimage="true" >
+		<include url="%HTMLPATH%//skin/goback.xml" />
+		<view hlookat="135" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="1" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-80" vlookatmax="60" />
+		<preview url="1_2-canto.tiles/preview.jpg" />
+		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
+			<level tiledimagewidth="1024" tiledimageheight="1024">
+				<cube url="1_2-canto.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+			</level>
+		</image>
+		<image if="webvr.isenabled">
+			<cube url="1_2-canto.tiles/vr/pano_%s.jpg" />
+		</image>
+		<hotspot name="terreo-gourmet-ext" distorted="true" ath="89" atv="5" scale="0.5" rz="0" style="hs_circle" tag="GOURMETERIA - EXTERNO" route="gourmet-ext" />
+		<hotspot name="terreo-salao" distorted="true" ath="95" atv="5" scale="0.5" rz="90" style="hs_circle" tag="SALÃO DE FESTAS" route="salao" />
+		<hotspot name="terreo-hall" distorted="true" ath="-175" atv="5" scale="0.5" rz="270" style="hs_circle" tag="HALL" route="hall" />
+	</scene>
+
+	<scene name="terreo-gourmet-ext" title="1.3-lateral" onstart="load_pano_view();" havevrimage="true">
+		<include url="%HTMLPATH%//skin/goback.xml" />
+		<view hlookat="68.0" vlookat="16.0" fovtype="MFOV" fov="120" maxpixelzoom="1" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-80" vlookatmax="60" />
+		<preview url="1_3-lateral.tiles/preview.jpg" />
+		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
+			<level tiledimagewidth="1024" tiledimageheight="1024">
+				<cube url="1_3-lateral.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+			</level>
+		</image>
+		<image if="webvr.isenabled">
+			<cube url="1_3-lateral.tiles/vr/pano_%s.jpg" />
+		</image>
+		<hotspot name="terreo-salao" distorted="true" ath="-94" atv="5" scale="0.5" rz="270" style="hs_circle" tag="SALÃO DE FESTAS" route="salao" />
+		<hotspot name="terreo-brinquedoteca" distorted="true" ath="103" atv="5" scale="0.5" rz="90" style="hs_circle" tag="BRINQUEDOTECA" route="brinquedoteca" />
+		<hotspot name="terreo-gourmet" distorted="true" ath="-158" atv="5" scale="0.5" rz="0" style="hs_circle" tag="GOURMETERIA" route="gourmet" />
+		<hotspot name="terreo-salao-ext" distorted="true" ath="-86" atv="5" scale="0.5" rz="0" style="hs_circle" tag="SALÃO - EXTERNO" route="salao-ext" />
+	</scene>
+
 	<scene  name="terreo-hall" onstart="load_pano_view();" havevrimage="true">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="141.9938478460745" vlookat="0.33581454258237664" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="141.9938478460745" vlookat="0.33581454258237664" fovtype="MFOV" fov="120" maxpixelzoom="1" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="4_1-hall.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -155,11 +204,16 @@
 		<image if="webvr.isenabled">
 			<cube url="4_1-hall.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="terreo-brinquedoteca" distorted="true" ath="103" atv="5" scale="0.5" rz="0" style="hs_circle" tag="BRINQUEDOTECA" route="brinquedoteca" />
+		<hotspot name="terreo-salao" distorted="true" ath="78" atv="5" scale="0.5" rz="270" style="hs_circle" tag="SALÃO DE FESTAS" route="salao" />
+		<hotspot name="terreo-office" distorted="true" ath="-125" atv="10" scale="0.5" rz="225" style="hs_circle" tag="OFFICE" route="office" />
+		<hotspot name="terreo-reunioes" distorted="true" ath="-125" atv="0" scale="0.5" rz="270" style="hs_circle" tag="REUNIÕES" route="reunioes" />
+		<hotspot name="terreo-rua" distorted="true" ath="-88" atv="5" scale="0.5" rz="0" style="hs_circle" tag="FACHADA DA RUA" route="rua" />
 	</scene>
 
 	<scene name="terreo-salao" title="4.2-salao" onstart="load_pano_view();" havevrimage="true" thumburl="4_2-salao.tiles/thumb.jpg" lat="" lng="" heading="">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="-30" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="1" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="4_2-salao.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -175,11 +229,14 @@
 		<image if="webvr.isenabled">
 			<cube url="4_2-salao.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="terreo-salao-ext" distorted="true" ath="-20" atv="5" scale="0.5" rz="0" style="hs_circle" tag="SALÃO - EXTERNO" route="salao-ext" />
+		<hotspot name="terreo-gourmet" distorted="true" ath="68" atv="5" scale="0.5" rz="0" style="hs_circle" tag="GOURMETERIA" route="gourmet" />
+		<hotspot name="terreo-hall" distorted="true" ath="135" atv="5" scale="0.5" rx="0" ry="0" rz="0" style="hs_circle" tag="HALL" route="hall" />
 	</scene>
 
 	<scene name="terreo-gourmet" title="4.3-gourmet" onstart="load_pano_view();" havevrimage="true" thumburl="4_3-gourmet.tiles/thumb.jpg" lat="" lng="" heading="">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="57.53196871577305" vlookat="0.5868024227178901" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="57.53196871577305" vlookat="0.5868024227178901" fovtype="MFOV" fov="120" maxpixelzoom="1" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="4_3-gourmet.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -195,11 +252,13 @@
 		<image if="webvr.isenabled">
 			<cube url="4_3-gourmet.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="terreo-salao" distorted="true" ath="-77" atv="5" scale="0.5" rz="0" style="hs_circle" tag="SALÃO DE FESTAS" route="salao" />
+		<hotspot name="terreo-gourmet-ext" distorted="true" ath="-47" atv="5" scale="0.5" rz="0" style="hs_circle" tag="GOURMETERIA - EXTERNO" route="gourmet-ext" />
 	</scene>
 
 	<scene name="terreo-office" title="4.4-office" onstart="load_pano_view();" havevrimage="true" thumburl="4_4-office.tiles/thumb.jpg" lat="" lng="" heading="">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="149.63356422699187" vlookat="-0.44020204444028616" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="149.63356422699187" vlookat="-0.44020204444028616" fovtype="MFOV" fov="120" maxpixelzoom="1" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="4_4-office.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -215,11 +274,13 @@
 		<image if="webvr.isenabled">
 			<cube url="4_4-office.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="terreo-hall" distorted="true" ath="-11" atv="10" scale="0.5" rz="0" style="hs_circle" tag="HALL" route="hall" />
+		<hotspot name="terreo-reunioes" distorted="true" ath="-28" atv="10" scale="0.5" rz="270" style="hs_circle" tag="REUNIÕES" route="reunioes" />
 	</scene>
 
 	<scene name="terreo-reunioes" title="4.5-reunioes" onstart="load_pano_view();" havevrimage="true" thumburl="4_5-reunioes.tiles/thumb.jpg" lat="" lng="" heading="">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="184.5762154112795" vlookat="3.262852786621801" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="184.5762154112795" vlookat="3.262852786621801" fovtype="MFOV" fov="120" maxpixelzoom="1" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="4_5-reunioes.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -235,11 +296,13 @@
 		<image if="webvr.isenabled">
 			<cube url="4_5-reunioes.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="terreo-office" distorted="true" ath="93" atv="10" scale="0.5" rz="90" style="hs_circle" tag="OFFICE" route="office" />
+		<hotspot name="terreo-hall" distorted="true" ath="73" atv="10" scale="0.5" rz="270" style="hs_circle" tag="HALL" route="hall" />
 	</scene>
 
 	<scene name="terreo-brinquedoteca" title="4.6brinquedoteca" onstart="load_pano_view();" havevrimage="true" thumburl="4_6-brinquedoteca.tiles/thumb.jpg" lat="" lng="" heading="">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="1" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="4_6-brinquedoteca.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -255,11 +318,13 @@
 		<image if="webvr.isenabled">
 			<cube url="4_6-brinquedoteca.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="terreo-gourmet-ext" distorted="true" ath="-4" atv="5" scale="0.5" rz="270" style="hs_circle" tag="GOURMETERIA - EXTERNO" route="gourmet-ext" />
+		<hotspot name="terreo-hall" distorted="true" ath="-173" atv="15" scale="0.5" rx="0" ry="0" rz="90" style="hs_circle" tag="HALL" route="hall" />
 	</scene>
 
 	<scene name="rooftop-academia" title="4.7-academia" onstart="load_pano_view();" havevrimage="true" thumburl="4_7-academia.tiles/thumb.jpg" lat="" lng="" heading="">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="101.59251095471484" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="101.59251095471484" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="1" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="4_7-academia.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -277,9 +342,9 @@
 		</image>
 	</scene>
 
-	<scene name="rooftop-terraco" title="4.8-rooftop" onstart="load_pano_view();" havevrimage="true" thumburl="4_8-rooftop.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="rooftop-lareira" onstart="load_pano_view();" havevrimage="true">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="1" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="4_8-rooftop.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -295,5 +360,27 @@
 		<image if="webvr.isenabled">
 			<cube url="4_8-rooftop.tiles/vr/pano_%s.jpg" />
 		</image>
+		<hotspot name="rooftop-espelhodagua" distorted="true" ath="90" atv="5" scale="0.5" rz="0" style="hs_circle" tag="ESPELHO D'ÁGUA" route="espelhodagua" />
+	</scene>
+
+	<scene name="rooftop-espelhodagua" onstart="load_pano_view();" havevrimage="true">
+		<include url="%HTMLPATH%//skin/goback.xml" />
+		<view hlookat="280.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="1" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
+		<preview url="4_9-rooftop-2.tiles/preview.jpg" />
+		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
+			<level tiledimagewidth="2560" tiledimageheight="2560">
+				<cube url="4_9-rooftop-2.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1280" tiledimageheight="1280">
+				<cube url="4_9-rooftop-2.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="640" tiledimageheight="640">
+				<cube url="4_9-rooftop-2.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+			</level>
+		</image>
+		<image if="webvr.isenabled">
+			<cube url="4_9-rooftop-2.tiles/vr/pano_%s.jpg" />
+		</image>
+		<hotspot name="rooftop-lareira" distorted="true" ath="-91" atv="5" scale="0.5" rz="0" style="hs_circle" tag="LAREIRA" route="lareira" />
 	</scene>
 </krpano>

@@ -1,12 +1,12 @@
-﻿<krpano bgcolor="0xFFFFFF" basedir="%SWFPATH%">
+﻿<krpano bgcolor="0xFFFFFF" basedir="%SWFPATH%" showerrors="false">
 	 
 	<!--<events keep="true" name="trace_on_idle" onidle="Print()" />
 	<action name="Print">
 		showlog();
 		set(_print, calc:'hlookat="' + view.hlookat + '" vlookat="' + view.vlookat + '" fovtype="MFOV" fov="' + view.fov + '"');
 		trace(_print);
-	</action>-->
-	<include url="%HTMLPATH%//tours/distortedhotspot_editor.xml" /> 
+	</action>
+	<include url="%HTMLPATH%//tours/distortedhotspot_editor.xml" /> -->
 	<include url="%HTMLPATH%//skin/PIPE-flatpano_setup-pr16.xml" />
 	<include url="%HTMLPATH%//skin/fs.xml" /> 
 	<include url="%HTMLPATH%//plugins/circle_hotspots.xml"/>
@@ -408,7 +408,7 @@
 <!-- ********** CENAS APARTAMENTO FINAL 5 ************** -->
 	<scene name="final5-estar">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="1.0" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="3_1-estar.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -433,7 +433,7 @@
 
 	<scene name="final5-suite">
 		<include url="%HTMLPATH%//skin/goback.xml" />	
-		<view hlookat="-77.95587276649427" vlookat="0.5055846981408081" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="-77.95587276649427" vlookat="0.5055846981408081" fovtype="MFOV" fov="120" maxpixelzoom="1.0" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="3_2-suite.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -455,7 +455,7 @@
 
 	<scene name="final5-quarto1">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="0.6235403252666176" vlookat="14.328105060160654" fovtype="MFOV" fov="133.64656102581048" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.6235403252666176" vlookat="14.328105060160654" fovtype="MFOV" fov="133.64656102581048" maxpixelzoom="1.0" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="3_3-quarto1.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -477,10 +477,16 @@
 
 	<scene name="final5-quarto2">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="0.8663621001890428" vlookat="8.505823389277687" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.8663621001890428" vlookat="8.50" fovtype="MFOV" fov="120" maxpixelzoom="1.0" architectural="0.75"  fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="3_4-quarto2.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
-			<level tiledimagewidth="1024" tiledimageheight="1024">
+			<level tiledimagewidth="2560" tiledimageheight="2560">
+				<cube url="3_4-quarto2.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1280" tiledimageheight="1280">
+				<cube url="3_4-quarto2.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="640" tiledimageheight="640">
 				<cube url="3_4-quarto2.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
 			</level>
 		</image>
@@ -492,7 +498,7 @@
 
 	<scene name="final5-cozinha">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="-42.09487769693211" vlookat="0.35406254384303093" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="-42.09487769693211" vlookat="0.35406254384303093" fovtype="MFOV" fov="120" maxpixelzoom="1.0" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="3_5-cozinha.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -514,7 +520,7 @@
 
 	<scene name="final5-issuite">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="-10.70697640749636" vlookat="23.85481238968263" fovtype="MFOV" fov="124.78851504101048" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="-10.70697640749636" vlookat="23.85481238968263" fovtype="MFOV" fov="124.78851504101048" maxpixelzoom="1.0" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="3_6-issuite.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -536,8 +542,7 @@
 
 	<scene name="final5-varanda">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="-61.640326870651045" vlookat="-1.5669727211519646" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-		<preview url="3_8-sacada.tiles/preview.jpg" />
+		<view hlookat="-61.640326870651045" vlookat="-1.5669727211519646" fovtype="MFOV" fov="120" maxpixelzoom="1.0" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
 				<cube url="3_8-sacada.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
@@ -561,7 +566,7 @@
 	<!-- CENAS APARTAMENTO FINAL 6 -->
 	<scene name="final6-estar">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="1.0" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="2_1-estar.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -585,7 +590,7 @@
 
 	<scene name="final6-suite">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="24.515245465167553" vlookat="1.568920717735279" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="24.515245465167553" vlookat="1.568920717735279" fovtype="MFOV" fov="120" maxpixelzoom="1.0" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="2_2-suite.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -607,7 +612,7 @@
 
 	<scene name="final6-quarto">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="7.735581821771213" vlookat="17.454844322294136" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="7.735581821771213" vlookat="17.454844322294136" fovtype="MFOV" fov="120" maxpixelzoom="1.0" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="2_3-quarto.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -629,7 +634,7 @@
 
 	<scene name="final6-cozinha">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="-33.2208542783774" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="-33.2208542783774" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="1.0" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="2_4-cozinha.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -651,7 +656,7 @@
 
 	<scene name="final6-issuite">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="422.396068684688" vlookat="20.81100876868224" fovtype="MFOV" fov="120" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="422.396068684688" vlookat="20.81100876868224" fovtype="MFOV" fov="120" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="2_5-issuite.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">
@@ -673,7 +678,7 @@
 
 	<scene name="final6-varanda">
 		<include url="%HTMLPATH%//skin/goback.xml" />
-		<view hlookat="-62.874520172474625" vlookat="-1.102475768414377" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="-62.874520172474625" vlookat="-1.102475768414377" fovtype="MFOV" fov="120" maxpixelzoom="1.0" architectural="0.75" fovmin="70" fovmax="140" limitview="lookat" vlookatmin="-40" vlookatmax="60" />
 		<preview url="2_7-sacada.tiles/preview.jpg" />
 		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
 			<level tiledimagewidth="2560" tiledimageheight="2560">

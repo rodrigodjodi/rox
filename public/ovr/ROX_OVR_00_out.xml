@@ -1,34 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vrobject>
-  <input overlap="1" levelqueuebmp="5" preview="4" states="1" levelqueueraw="20" windowwidth="1920" width="3833" preload="1" rows="1" fileextension="jpg" windowheight="1081" levelmembmp="200" imagepath="images" levelmemraw="300" height="2159" columns="37" levelbias="0.400" leveltileurl="tiles/c%c_l%r_%y_%x.jpg" leveltilesize="1080">
+  <input overlap="1" levelqueuebmp="5" preview="4" states="1" levelqueueraw="20" windowwidth="1920" width="3833" preload="1" rows="1"
+   fileextension="jpg" windowheight="1081" levelmembmp="200" imagepath="images" levelmemraw="300" height="2159" columns="74" 
+   levelbias="0.400" leveltileurl="tiles/c%c_l%r_%y_%x.jpg" leveltilesize="1080">
     <level width="3833" embed="0" height="2159" preload="0" predecode="0"/>
     <level width="1916" embed="0" height="1079" preload="0" predecode="0"/>
     <level width="958" embed="0" height="539" preload="1" predecode="0"/>
   </input>
-  <control simulatemass="1" lockedmouse="0" swapxy="0" lockedkeyboard="0" dblclickfullscreen="0" revx="0" invertwheel="1" revy="0" wrapx="1" wrapy="0" trapwheel="1" automovemode="0" lockedwheel="0" speedwheel="1.000" controller="1" sensitivity="10"/>
+  <control simulatemass="1" lockedmouse="0" swapxy="0" lockedkeyboard="0" dblclickfullscreen="0"
+    revx="0" invertwheel="1" revy="0" wrapx="1" wrapy="0" trapwheel="1" automovemode="0"
+    lockedwheel="0" speedwheel="1.000" controller="1" sensitivity="10"
+  />
   <view>
-    <start row="0" column="22" state="0"/>
-    <zoom default="1.000" centerx="0.00000" centery="0.00000" min="1" max="2.000"/>
+    <start row="0" column="45" state="0"/>
+    <zoom default="1.000" centerx="0.46000" centery="1.00000" min="1" max="2.000"/>
     <viewer imagescaling="4" backgroundcolor="0xffffff" background="1"/>
   </view>
   <autorotate speed="1.000" delay="5.00" start="0"/>
   <userdata title="Rox" datetime="" description="" copyright="" author="" source="" comment="" info=""/>
   <qthotspots enabled="1" reuse="8">
-    <label width="180" backgroundalpha="1" enabled="1" height="0" backgroundcolor="0xEE7501" bordercolor="0x000000" border="1" textcolor="0x000000" background="1" borderalpha="1.000" borderradius="1" wordwrap="1" textalpha="1.000"/>
-    <hotspot title="Final 1" target="_self" url="final1" id="159"/>
-    <hotspot title="Final 2" target="" url="final2" id="75"/>
-    <hotspot title="Final 3" target="" url="final3" id="223"/>
-    <hotspot title="Final 4" target="" url="final4" id="123"/>
-    <hotspot title="Final 5" target="" url="final5" id="129"/>
-    <hotspot title="Final 6" target="" url="final6" id="81"/>
-    <hotspot title="Cobertura 1" target="" url="coberturafinal1" id="155"/>
-    <hotspot title="Cobertura 2" target="" url="coberturafinal2" id="87"/>
-    <hotspot title="Áreas comuns" target="" url="areascomuns" id="7"/>
+    <label width="180" backgroundalpha="0.8" enabled="1" height="0"
+      backgroundcolor="0x2d3e50" bordercolor="0xFFFFFF" border="1" 
+      textcolor="0xFFFFFF" background="1" borderalpha="0.8" 
+      borderradius="4" wordwrap="1" textalpha="1.000"/>
+    <hotspot title="Final 1" url="final1" id="159"/>
+    <hotspot title="Final 2" url="final2" id="75"/>
+    <hotspot title="Final 3" url="final3" id="223"/>
+    <hotspot title="Final 4" url="final4" id="123"/>
+    <hotspot title="Final 5" url="final5" id="129"/>
+    <hotspot title="Final 6" url="final6" id="81"/>
+    <hotspot title="Cobertura 1" url="coberturafinal1" id="155"/>
+    <hotspot title="Cobertura 2" url="coberturafinal2" id="87"/>
+    <hotspot title="Áreas comuns térreo" url="areascomuns" id="126"/>
+    <hotspot title="Rooftop" url="rooftop" id="44"/>
   </qthotspots>
   <hotspots>
-    <label width="auto" backgroundalpha="1" enabled="1" height="0"
-      backgroundcolor="0xFFFF00" bordercolor="0x000000" border="1" textcolor="0x000000" background="1" borderalpha="1.000" borderradius="1"
-      wordwrap="1" textalpha="1.000"/>
+    <label width="180" backgroundalpha="0.8" enabled="1" height="0"
+      backgroundcolor="0x2d3e50" bordercolor="0xFFFFFF" border="1" 
+      textcolor="0xFFFFFF" background="1" borderalpha="0.8" 
+      borderradius="4" wordwrap="1" textalpha="1.000"/>
     <polystyle mode="2" backgroundalpha="0.251" backgroundcolor="0x0000ff" bordercolor="0x0000ff" borderalpha="1.000"/>
+    <hotspot title="Terminal Cabral" skinid="bus" url="" id="pt-terminal-cabral" reuse="0">
+      <location x="0.0177824" y="0.269517" row="0" column="5" state="0"/>
+      <location x="0.0951883" y="0.254647" row="0" column="6" state="0"/>
+      <location x="0.166318" y="0.247212" row="0" column="7" state="0"/>
+      <location x="0.237448" y="0.243494" row="0" column="8" state="0"/>
+      <location x="0.297071" y="0.237918" row="0" column="9" state="0"/>
+      <location x="0.366109" y="0.239777" row="0" column="10" state="0"/>
+      <location x="0.430962" y="0.239777" row="0" column="11" state="0"/>
+      <location x="0.478033" y="0.237918" row="0" column="12" state="0"/>
+      <location x="0.523013" y="0.237918" row="0" column="13" state="0"/>
+      <location x="0.569038" y="0.243494" row="0" column="14" state="0"/>
+      <location x="0.618201" y="0.243494" row="0" column="15" state="0"/>
+      <location x="0.66318" y="0.249071" row="0" column="16" state="0"/>
+      <location x="0.699791" y="0.252788" row="0" column="17" state="0"/>
+      <location x="0.726987" y="0.256506" row="0" column="18" state="0"/>
+      <location x="0.756276" y="0.265799" row="0" column="19" state="0"/>
+      <location x="0.789749" y="0.263941" row="0" column="20" state="0"/>
+      <location x="0.846234" y="0.269517" row="0" column="21" state="0"/>
+      <location x="0.899582" y="0.282528" row="0" column="22" state="0"/>
+      <location x="0.985356" y="0.295539" row="0" column="23" state="0"/>
+    </hotspot>
+    <hotspot title="Justiça Federal" skinid="briefcase" url="" id="pt-justica-federal" reuse="0">
+      <location x="0.0209205" y="0.107807" row="0" column="0" state="0"/>
+      <location x="0.0993724" y="0.105948" row="0" column="1" state="0"/>
+      <location x="0.191423" y="0.104089" row="0" column="2" state="0"/>
+      <location x="0.268828" y="0.100372" row="0" column="3" state="0"/>
+      <location x="0.344142" y="0.107807" row="0" column="4" state="0"/>
+      <location x="0.415272" y="0.104089" row="0" column="5" state="0"/>
+      <location x="0.486402" y="0.111524" row="0" column="6" state="0"/>
+      <location x="0.558577" y="0.107807" row="0" column="7" state="0"/>
+      <location x="0.630753" y="0.109665" row="0" column="8" state="0"/>
+      <location x="0.698745" y="0.115242" row="0" column="9" state="0"/>
+      <location x="0.776151" y="0.1171" row="0" column="10" state="0"/>
+      <location x="0.856695" y="0.126394" row="0" column="11" state="0"/>
+      <location x="0.9341" y="0.133829" row="0" column="12" state="0"/>
+      <location x="0.990586" y="0.135688" row="0" column="13" state="0"/>
+    </hotspot>
+    <hotspot title="Graciosa Country Club" skinid="golf" url="" id="pt-graciosa" reuse="0">
+      <location x="0.0596234" y="0.187732" row="0" column="26" state="0"/>
+      <location x="0.141213" y="0.184015" row="0" column="27" state="0"/>
+      <location x="0.207113" y="0.182156" row="0" column="28" state="0"/>
+      <location x="0.275105" y="0.178439" row="0" column="29" state="0"/>
+      <location x="0.327406" y="0.180297" row="0" column="30" state="0"/>
+      <location x="0.375523" y="0.189591" row="0" column="31" state="0"/>
+      <location x="0.417364" y="0.182156" row="0" column="32" state="0"/>
+      <location x="0.461297" y="0.187732" row="0" column="33" state="0"/>
+      <location x="0.5" y="0.189591" row="0" column="34" state="0"/>
+      <location x="0.537657" y="0.189591" row="0" column="35" state="0"/>
+      <location x="0.580544" y="0.193309" row="0" column="36" state="0"/>
+      <location x="0.618201" y="0.193309" row="0" column="37" state="0"/>
+      <location x="0.662134" y="0.198885" row="0" column="38" state="0"/>
+      <location x="0.713389" y="0.200743" row="0" column="39" state="0"/>
+      <location x="0.759414" y="0.198885" row="0" column="40" state="0"/>
+      <location x="0.803347" y="0.200743" row="0" column="41" state="0"/>
+      <location x="0.857741" y="0.208178" row="0" column="42" state="0"/>
+      <location x="0.909519" y="0.224907" row="0" column="43" state="0"/>
+      <location x="0.964958" y="0.240706" row="0" column="44" state="0"/>
+    </hotspot>
+    <hotspot title="UFPR - Campus Agrárias" skinid="school" url="" id="pt-ufpr" reuse="0">
+      <location x="0.0329498" y="0.187732" row="0" column="17" state="0"/>
+      <location x="0.0658996" y="0.183086" row="0" column="18" state="0"/>
+      <location x="0.0983264" y="0.181227" row="0" column="19" state="0"/>
+      <location x="0.145397" y="0.175651" row="0" column="20" state="0"/>
+      <location x="0.206067" y="0.167286" row="0" column="21" state="0"/>
+      <location x="0.269874" y="0.164498" row="0" column="22" state="0"/>
+      <location x="0.346757" y="0.162639" row="0" column="23" state="0"/>
+      <location x="0.419979" y="0.162639" row="0" column="24" state="0"/>
+      <location x="0.492155" y="0.165428" row="0" column="25" state="0"/>
+      <location x="0.570084" y="0.166357" row="0" column="26" state="0"/>
+      <location x="0.641213" y="0.172862" row="0" column="27" state="0"/>
+      <location x="0.700837" y="0.178439" row="0" column="28" state="0"/>
+      <location x="0.769351" y="0.184944" row="0" column="29" state="0"/>
+      <location x="0.829498" y="0.193309" row="0" column="30" state="0"/>
+      <location x="0.883368" y="0.198885" row="0" column="31" state="0"/>
+      <location x="0.938285" y="0.20632" row="0" column="32" state="0"/>
+      <location x="0.993201" y="0.214684" row="0" column="33" state="0"/>
+    </hotspot>
+    <hotspot title="Babilônia Gastronomia" skinid="silverware" url="" id="pt-babilonia" reuse="0">
+      <location x="0.670241" y="0.237918" row="0" column="25" state="0"/>
+      <location x="0.599895" y="0.234665" row="0" column="24" state="0"/>
+      <location x="0.533734" y="0.234201" row="0" column="23" state="0"/>
+      <location x="0.46705" y="0.235595" row="0" column="22" state="0"/>
+      <location x="0.416841" y="0.235595" row="0" column="21" state="0"/>
+      <location x="0.368462" y="0.238848" row="0" column="20" state="0"/>
+      <location x="0.332113" y="0.239777" row="0" column="19" state="0"/>
+      <location x="0.307531" y="0.238383" row="0" column="18" state="0"/>
+      <location x="0.283211" y="0.240706" row="0" column="17" state="0"/>
+      <location x="0.240063" y="0.2421" row="0" column="16" state="0"/>
+      <location x="0.194561" y="0.24303" row="0" column="15" state="0"/>
+      <location x="0.143044" y="0.247212" row="0" column="14" state="0"/>
+      <location x="0.0860356" y="0.252788" row="0" column="13" state="0"/>
+      <location x="0.022751" y="0.262082" row="0" column="12" state="0"/>
+      <location x="0.745816" y="0.246283" row="0" column="26" state="0"/>
+    </hotspot>
+    <hotspot title="Av. Pref. Erasto Gaertner" skinid="store" url="" id="erasto" reuse="0">
+      <location x="0.0117678" y="0.240706" row="0" column="35" state="0"/>
+      <location x="0.0577929" y="0.232807" row="0" column="36" state="0"/>
+      <location x="0.100418" y="0.22723" row="0" column="37" state="0"/>
+      <location x="0.145397" y="0.224907" row="0" column="38" state="0"/>
+      <location x="0.194038" y="0.22026" row="0" column="39" state="0"/>
+      <location x="0.240847" y="0.216078" row="0" column="40" state="0"/>
+      <location x="0.281904" y="0.213755" row="0" column="41" state="0"/>
+      <location x="0.321914" y="0.210502" row="0" column="42" state="0"/>
+      <location x="0.362448" y="0.211896" row="0" column="43" state="0"/>
+      <location x="0.402458" y="0.212361" row="0" column="44" state="0"/>
+      <location x="0.449268" y="0.209572" row="0" column="45" state="0"/>
+      <location x="0.488494" y="0.210502" row="0" column="46" state="0"/>
+      <location x="0.533211" y="0.208178" row="0" column="47" state="0"/>
+      <location x="0.581067" y="0.208643" row="0" column="48" state="0"/>
+      <location x="0.623431" y="0.210502" row="0" column="49" state="0"/>
+      <location x="0.678086" y="0.213755" row="0" column="50" state="0"/>
+      <location x="0.732218" y="0.216543" row="0" column="51" state="0"/>
+      <location x="0.788703" y="0.22026" row="0" column="52" state="0"/>
+      <location x="0.84545" y="0.22723" row="0" column="53" state="0"/>
+      <location x="0.915533" y="0.239777" row="0" column="54" state="0"/>
+      <location x="0.980387" y="0.253717" row="0" column="55" state="0"/>
+    </hotspot>
   </hotspots>
 </vrobject>

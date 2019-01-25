@@ -54,8 +54,8 @@ export default {
       return this.innerHeight < 480 ? this.innerHeight : this.innerHeight - 48;
     },
     blend() {
-      return "OPENBLEND(1.0, 0.0, 0.2, 0.0, linear)";
-      //return 'BLEND(0.5)'
+      //return "OPENBLEND(1.0, 0.0, 0.2, 0.0, linear)";
+      return "BLEND(0.5)";
     }
   },
   methods: {
